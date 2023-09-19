@@ -13,10 +13,9 @@ export default function Home() {
   return (
     <div className="max-w-[1920px] bg-white mx-auto relative overflow-hidden ">
       <Header />
-      <div className="h-[100rem]"></div>
       <Hero />
-      <Products />
       <About />
+      <Products />
       <Why />
       <Testimonials />
       <Contact />
