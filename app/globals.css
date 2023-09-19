@@ -16,6 +16,9 @@
   .h2 {
     @apply text-4xl  mb-[6px] font-[bold];
   }
+  .h3 {
+    @apply text-4xl  mb-[4px] font-[semi-bold];
+  }
 
   .description {
     @apply text-base  xl:text-xl xl:leading-8;

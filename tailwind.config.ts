@@ -17,7 +17,7 @@ const config: Config = {
         sm: "640px",
         md: "760px",
         lg: "1024px",
-        xl: "1300px",
+        xl: "1260px",
       },
       colors: {
         primary: "#101828",
