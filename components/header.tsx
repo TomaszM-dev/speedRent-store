@@ -8,7 +8,7 @@ import { Link } from "react-scroll";
 import { useMediaQuery } from "react-responsive";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { BiMenuAltRight, BiX } from "react-icons/bi";
+import { BiBasket, BiMenuAltRight, BiSolidBasket, BiX } from "react-icons/bi";
 
 import { SearchContext } from "@/context/search";
 
@@ -35,16 +35,16 @@ const Header = () => {
     },
 
     {
-      name: "About",
+      name: "Products",
 
-      to: "about",
+      to: "products",
       activeClass: "active",
       spy: true,
     },
     {
-      name: "Products",
+      name: "About",
 
-      to: "products",
+      to: "about",
       activeClass: "active",
       spy: true,
     },
@@ -120,15 +120,22 @@ const Header = () => {
             </p>
           </Link>
           {/* nav open menu */}
-          <div
-            onClick={() => setNav(!nav)}
-            className="cursor-pointer xl:hidden"
-          >
-            {nav ? (
-              <BiX className="text-4xl" />
-            ) : (
-              <BiMenuAltRight className="text-4xl" />
-            )}
+          <div className="flex items-center">
+            <div className="flex gap-3 mr-2 items-center ">
+              <p>Cars</p>
+              <p>Boards</p>
+              <BiSolidBasket className="text-3xl" />
+            </div>
+            <div
+              onClick={() => setNav(!nav)}
+              className="cursor-pointer xl:hidden flex items-center"
+            >
+              {nav ? (
+                <BiX className="text-4xl" />
+              ) : (
+                <BiMenuAltRight className="text-4xl" />
+              )}
+            </div>
           </div>
         </div>
 
@@ -138,6 +145,7 @@ const Header = () => {
             <div className="max-h-max py-8 px-4  xl:px-0   gap-y-5 uppercase opacity-1 flex flex-col w-full  bg-white overflow-hidden font-bold xl:flex-row xl:w-max xl:gap-x-8 xl:h-max xl:bg-transparent xl:pb-0 transition-all duration-150 text-center cursor-pointer">
               {linkData.map((link) => (
                 <Link
+                  className="cursor-pointer"
                   key={link.name}
                   to={link.to}
                   activeClass={link.activeClass}
@@ -153,6 +161,7 @@ const Header = () => {
             <div className="max-h-0 xl:max-h-max flex flex-col w-full  bg-white overflow-hidden font-bold xl:flex-row xl:w-max xl:gap-x-8 xl:h-max xl:bg-transparent xl:pb-0 transition-all duration-150 text-center">
               {linkData.map((link) => (
                 <Link
+                  className="cursor-pointer"
                   key={link.name}
                   to={link.to}
                   activeClass={link.activeClass}

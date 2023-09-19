@@ -11,7 +11,7 @@
   }
 
   .h1 {
-    @apply text-4xl xl:text-[6.4rem] text-primary xl:leading-[72px] font-extrabold mb-[18px];
+    @apply text-5xl xl:text-[3.7rem] text-primary xl:leading-[72px] font-extrabold mb-[18px];
   }
   .h2 {
     @apply text-4xl  mb-[6px] font-[bold];
@@ -21,14 +21,14 @@
   }
 
   .description {
-    @apply text-base  xl:text-xl xl:leading-8;
+    @apply text-base   text-[1.3rem] xl:leading-8;
   }
   .section {
     @apply w-full h-screen pt-[60px] xl:pt-[120px];
   }
 
   .btn {
-    @apply rounded-[10px] w-full uppercase font-medium text-white tracking-[2px] text-[13px] flex justify-center items-center transition-all duration-300;
+    @apply rounded-[10px] w-full uppercase font-medium text-white tracking-[2px]  flex justify-center items-center transition-all duration-300;
   }
 
   .btn-sm {
@@ -54,4 +54,10 @@
   .active {
     @apply text-accent;
   }
+}
+
+.container {
+  max-width: 1200px;
+  width: 100vw;
+  margin: auto;
 }

@@ -14,8 +14,8 @@ export default function Home() {
     <div className="max-w-[1920px] bg-white mx-auto relative overflow-hidden ">
       <Header />
       <Hero />
-      <About />
       <Products />
+      <About />
       <Why />
       <Testimonials />
       <Contact />
