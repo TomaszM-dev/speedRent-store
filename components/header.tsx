@@ -10,11 +10,15 @@ import { useMediaQuery } from "react-responsive";
 import { motion, AnimatePresence } from "framer-motion";
 import { BiMenuAltRight, BiX } from "react-icons/bi";
 
+import { SearchContext } from "@/context/search";
+
 // header component
 
 const Header = () => {
   const [header, setHeader] = useState(false);
   const [nav, setNav] = useState(false);
+  // @ts-ignore
+  const { setSearchActive } = useContext(SearchContext);
 
   const desktopMode = useMediaQuery({
     query: "(min-width: 1000px)",
@@ -31,16 +35,16 @@ const Header = () => {
     },
 
     {
-      name: "Products",
+      name: "About",
 
-      to: "products",
+      to: "about",
       activeClass: "active",
       spy: true,
     },
     {
-      name: "About",
+      name: "Products",
 
-      to: "about",
+      to: "products",
       activeClass: "active",
       spy: true,
     },
@@ -54,7 +58,7 @@ const Header = () => {
     {
       name: "Testimonials",
 
-      to: "why",
+      to: "testimonials",
       activeClass: "active",
       spy: true,
     },
@@ -81,6 +85,12 @@ const Header = () => {
         setHeader(true);
       } else {
         setHeader(false);
+      }
+
+      if (window.scrollY > 800) {
+        setSearchActive(true);
+      } else {
+        setSearchActive(false);
       }
     };
     window.addEventListener("scroll", handleScroll);
@@ -125,7 +135,7 @@ const Header = () => {
         {/* nav */}
         <AnimatePresence>
           {nav && (
-            <div className="max-h-max py-8 px-4  xl:px-0   gap-y-5 uppercase opacity-1 flex flex-col w-full  bg-white overflow-hidden font-bold xl:flex-row xl:w-max xl:gap-x-8 xl:h-max xl:bg-transparent xl:pb-0 transition-all duration-150 text-center">
+            <div className="max-h-max py-8 px-4  xl:px-0   gap-y-5 uppercase opacity-1 flex flex-col w-full  bg-white overflow-hidden font-bold xl:flex-row xl:w-max xl:gap-x-8 xl:h-max xl:bg-transparent xl:pb-0 transition-all duration-150 text-center cursor-pointer">
               {linkData.map((link) => (
                 <Link
                   key={link.name}

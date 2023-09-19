@@ -1,12 +1,9 @@
 import { Urbanist } from "next/font/google";
+import "./globals.css";
 
 import ModalProvider from "@/providers/modal-provider";
 import { ToastProvider } from "@/providers/toast-provider";
-
-import Navbar from "@/components/header";
-// import Footer from "@/components/footer";
-
-import "./globals.css";
+import { SearchContextProvider } from "@/context/search";
 
 const font = Urbanist({ subsets: ["latin"] });
 
@@ -21,12 +18,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={font.className}>
-        <ToastProvider />
-        <ModalProvider />
-        {children}
-      </body>
-    </html>
+    <SearchContextProvider>
+      <html lang="en">
+        <body className={font.className}>
+          <ToastProvider />
+          <ModalProvider />
+          {children}
+        </body>
+      </html>
+    </SearchContextProvider>
   );
 }
