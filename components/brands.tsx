@@ -11,7 +11,7 @@ import vw from "public/icons/brands/vw.svg";
 
 const BrandsImages = () => {
   return (
-    <div className="justify-center gap-20 flex items-center   ">
+    <div className="justify-center gap-x-20 gap-y-8 flex items-center   flex-wrap ">
       <Image
         className="h-18 w-20 "
         width={200}

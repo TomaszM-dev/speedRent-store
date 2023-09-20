@@ -1,6 +1,6 @@
 import { SearchContext } from "@/context/search";
 import { useContext } from "react";
-import LocationSelection from "./location-selection";
+import LocationSelection from "./ui/location-selection";
 
 export default function Search() {
   // @ts-ignore
