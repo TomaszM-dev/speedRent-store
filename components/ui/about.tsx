@@ -21,16 +21,20 @@ const About = () => {
 
   return (
     <section className="section flex items-center " id="about" ref={ref}>
-      <div className="container flex  justify-center">
+      <div className="container flex max-lg:flex-col justify-center">
         <motion.div
           variants={fadeIn("up", 0.6)}
           initial="hidden"
           whileInView={"show"}
           className="flex-1"
         >
-          <Image src={carAbout} alt="" className="" />
+          <Image
+            src={carAbout}
+            alt=""
+            className="max-lg:w-[70%] max-lg:mx-auto max-sm:w-[90%]"
+          />
         </motion.div>
-        <div className="flex flex-col gap-4 flex-1 w-full  ml-28">
+        <div className="flex flex-col gap-4 flex-1 w-full  ml-28 max-lg:ml-0 max-lg:items-center max-lg:mt-10">
           <motion.h2
             variants={fadeIn("up", 0.2)}
             initial="hidden"
@@ -43,7 +47,7 @@ const About = () => {
             variants={fadeIn("up", 0.4)}
             initial="hidden"
             whileInView={"show"}
-            className="w-[80%]"
+            className="w-[80%] max-lg:text-center"
           >
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat,
             quaerat? Accusantium, ut soluta corporis perferendis minima eligendi
@@ -55,7 +59,7 @@ const About = () => {
             whileInView={"show"}
             className="flex gap-20"
           >
-            <div className="flex flex-col gap-2 mt-6">
+            <div className="flex flex-col gap-2 mt-6 items-center">
               <MdOutlineDirectionsCar className="text-5xl text-accent" />
               <div className="text-2xl font-bold">
                 {inView ? (
@@ -65,11 +69,11 @@ const About = () => {
                 )}
                 +
               </div>
-              <p className=" uppercase font-semibold text-[0.9rem] leading-tight">
+              <p className="text-center uppercase font-semibold text-[0.9rem] leading-tight">
                 Car <br></br> Types
               </p>
             </div>
-            <div className="flex flex-col gap-2 mt-6">
+            <div className="flex flex-col gap-2 mt-6 items-center">
               <MdOutlineMapsHomeWork className="text-5xl text-accent" />
               <div className="text-2xl font-bold">
                 {inView ? (
@@ -79,11 +83,11 @@ const About = () => {
                 )}
                 +
               </div>
-              <p className=" uppercase font-semibold text-[0.9rem] leading-tight">
+              <p className="text-center uppercase font-semibold text-[0.9rem] leading-tight">
                 rental <br></br> outlets
               </p>
             </div>
-            <div className="flex flex-col gap-2 mt-6">
+            <div className="flex flex-col gap-2 mt-6 items-center">
               <MdOutlineBuildCircle className="text-5xl text-accent" />
               <div className="text-2xl font-bold">
                 {inView ? (
@@ -93,7 +97,7 @@ const About = () => {
                 )}
                 +
               </div>
-              <p className=" uppercase font-semibold text-[0.9rem] leading-tight">
+              <p className=" uppercase font-semibold text-[0.9rem] leading-tight text-center">
                 Car <br></br> Types
               </p>
             </div>

@@ -1,12 +1,13 @@
+"use client";
 import React from "react";
+import TestimonialSlider from "../testimonial-slider";
 
 const Testimonials = () => {
   return (
-    <section
-      className="section flex items-center bg-green-100"
-      id="testimonials"
-    >
-      testimonials
+    <section className="section flex items-center " id="testimonials">
+      <div className="container mx-auto">
+        <TestimonialSlider />
+      </div>
     </section>
   );
 };
