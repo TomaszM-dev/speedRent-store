@@ -5,7 +5,7 @@ import BackToTopBtn from "@/components/ui/back-to-top-btn";
 import Contact from "@/components/ui/contact";
 import Footer from "@/components/ui/footer";
 import Hero from "@/components/ui/hero";
-import Products from "@/components/ui/Products";
+import Products from "@/components/ui/products";
 import Testimonials from "@/components/ui/testimonials";
 import Why from "@/components/ui/why";
 

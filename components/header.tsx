@@ -8,15 +8,76 @@ import { Link } from "react-scroll";
 import { useMediaQuery } from "react-responsive";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { BiBasket, BiMenuAltRight, BiSolidBasket, BiX } from "react-icons/bi";
+import {
+  BiBasket,
+  BiDesktop,
+  BiMenuAltRight,
+  BiSolidBasket,
+  BiX,
+} from "react-icons/bi";
+import { ActivitySquare, ShoppingBag } from "lucide-react";
 
 import { SearchContext } from "@/context/search";
+import { containerVars, menuLinkVars, menuVars } from "@/animations/animations";
 
 // header component
+const linkData = [
+  {
+    name: "Home",
+
+    to: "home",
+    activeClass: "active",
+    spy: true,
+  },
+
+  {
+    name: "Products",
+
+    to: "products",
+    activeClass: "active",
+    spy: true,
+  },
+  {
+    name: "About",
+
+    to: "about",
+    activeClass: "active",
+    spy: true,
+  },
+  {
+    name: "Why us",
+
+    to: "why",
+    activeClass: "active",
+    spy: true,
+  },
+  {
+    name: "Testimonials",
+
+    to: "testimonials",
+    activeClass: "active",
+    spy: true,
+  },
+  {
+    name: "Contact",
+
+    to: "contact",
+    activeClass: "active",
+    spy: true,
+  },
+  {
+    name: "",
+
+    to: "contact",
+    activeClass: "active",
+    spy: true,
+  },
+];
 
 const Header = () => {
   const [header, setHeader] = useState(false);
   const [nav, setNav] = useState(false);
+
   // @ts-ignore
   const { setSearchActive } = useContext(SearchContext);
 
@@ -25,58 +86,6 @@ const Header = () => {
   });
 
   // links
-  const linkData = [
-    {
-      name: "Home",
-
-      to: "home",
-      activeClass: "active",
-      spy: true,
-    },
-
-    {
-      name: "Products",
-
-      to: "products",
-      activeClass: "active",
-      spy: true,
-    },
-    {
-      name: "About",
-
-      to: "about",
-      activeClass: "active",
-      spy: true,
-    },
-    {
-      name: "Why us",
-
-      to: "why",
-      activeClass: "active",
-      spy: true,
-    },
-    {
-      name: "Testimonials",
-
-      to: "testimonials",
-      activeClass: "active",
-      spy: true,
-    },
-    {
-      name: "Contact",
-
-      to: "contact",
-      activeClass: "active",
-      spy: true,
-    },
-    {
-      name: "",
-
-      to: "contact",
-      activeClass: "active",
-      spy: true,
-    },
-  ];
 
   // adding background to navbar when scrolled
   useEffect(() => {
@@ -99,94 +108,112 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   });
-
   return (
     <header
       className={`${
         header ? " bg-white shadow-md py-2" : "bg-transparent shadow-none py-"
       } fixed w-full max-w-[1900px] py-6 mx-auto px-10 z-20 transition-all duration-300 text-[1.1rem] `}
     >
-      <div className="xl:container mx-auto flex  flex-col xl:flex-row xl:items-center xl:justify-between">
-        <div className="flex justify-between items-center px-4">
-          {/*  go back home */}
-          <Link
-            to="home"
-            smooth={desktopMode}
-            spy={true}
-            className={"cursor-pointer"}
-          >
-            <p className="text-[1.4rem] font-bold text-primary">
-              Speedy<span className="text-accent">Rental</span>
-            </p>
+      <div className="flex justify-between max-xl:justify-stretch items-center">
+        <h1 className=" text-[1.5rem] max-xl:flex-1 ">
+          <Link to="/" className="">
+            Speed<span className="text-accent">Rental</span>
           </Link>
-          {/* nav open menu */}
-          <div className="flex items-center">
-            <div className="flex gap-3 mr-2 items-center ">
-              <p>Cars</p>
-              <p>Boards</p>
-              <BiSolidBasket className="text-3xl" />
-            </div>
-            <div
-              onClick={() => setNav(!nav)}
-              className="cursor-pointer xl:hidden flex items-center"
+        </h1>
+        <div className="flex items-center max-xl:hidden text-[1.1rem] gap-6 text-primary font-semibold ml-16">
+          {linkData.map((link) => (
+            <Link
+              className="cursor-pointer"
+              key={link.name}
+              to={link.to}
+              activeClass={link.activeClass}
+              spy={link.spy}
+              smooth={desktopMode}
             >
-              {nav ? (
-                <BiX className="text-4xl" />
-              ) : (
-                <BiMenuAltRight className="text-4xl" />
-              )}
-            </div>
-          </div>
+              {link.name}
+            </Link>
+          ))}
         </div>
 
-        {/* nav */}
-        <AnimatePresence>
-          {nav && (
-            <div className="max-h-max py-8 px-4  xl:px-0   gap-y-5 uppercase opacity-1 flex flex-col w-full  bg-white overflow-hidden font-bold xl:flex-row xl:w-max xl:gap-x-8 xl:h-max xl:bg-transparent xl:pb-0 transition-all duration-150 text-center cursor-pointer">
-              {linkData.map((link) => (
-                <Link
-                  className="cursor-pointer"
-                  key={link.name}
-                  to={link.to}
-                  activeClass={link.activeClass}
-                  spy={link.spy}
-                  smooth={desktopMode}
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </div>
+        <div className=" flex gap-3 mx-5 items-center text-[1.1rem] font-semibold ">
+          <p className="text-primary">Our Offer</p>
+          <ShoppingBag className="text-3xl" />
+        </div>
+
+        <div
+          onClick={() => setNav(!nav)}
+          className="  cursor-pointer xl:hidden flex items-center"
+        >
+          {nav ? (
+            <BiX className="text-4xl" />
+          ) : (
+            <BiMenuAltRight className="text-4xl" />
           )}
-          {!nav && (
-            <div className="max-h-0 xl:max-h-max flex flex-col w-full  bg-white overflow-hidden font-bold xl:flex-row xl:w-max xl:gap-x-8 xl:h-max xl:bg-transparent xl:pb-0 transition-all duration-150 text-center">
-              {linkData.map((link) => (
-                <Link
-                  className="cursor-pointer"
-                  key={link.name}
-                  to={link.to}
-                  activeClass={link.activeClass}
-                  spy={link.spy}
-                  smooth={desktopMode}
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </div>
-          )}
-        </AnimatePresence>
+        </div>
       </div>
+      <AnimatePresence>
+        {nav && (
+          <motion.div
+            variants={menuVars}
+            initial="initial"
+            exit="exit"
+            animate="animate"
+            className="h-screen w-full fixed top-0 left-0 bg-white py-6 px-10  origin-top"
+          >
+            <div className="flex h-full flex-col">
+              <div className="flex justify-between">
+                <h1 className="text-[1.5rem] ">
+                  Speed<span className="text-accent">Rental</span>
+                </h1>
+                <BiX
+                  onClick={() => setNav(false)}
+                  className="text-4xl cursor-pointer"
+                />
+              </div>
+              <motion.div
+                variants={containerVars}
+                initial="initial"
+                animate="open"
+                exit="initial"
+                className="items-center flex  flex-col  h-full gap-5 text-[1.7rem] justify-center"
+              >
+                {linkData.map((link, index) => (
+                  <motion.div className="overflow-hidden">
+                    <MobileNavLink
+                      key={index}
+                      to={link.to}
+                      spy={link.spy}
+                      activeClass={link.activeClass}
+                      name={link.name}
+                      smooth={desktopMode}
+                      setNav={setNav}
+                    />
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
+  );
+};
+const MobileNavLink = ({ to, activeClass, spy, smooth, name, setNav }) => {
+  return (
+    <motion.div variants={menuLinkVars}>
+      <Link
+        onClick={() => setNav(false)}
+        className="cursor-pointer"
+        to={to}
+        key={name}
+        activeClass={activeClass}
+        spy={spy}
+        smooth={smooth}
+      >
+        {name}
+      </Link>
+    </motion.div>
   );
 };
 
 export default Header;
-
-{
-  /* <nav
-className={`${
-  nav
-    ? "max-h-max py-8 px-4  xl:px-0   gap-y-5 uppercase opacity-1 "
-    : "max-h-0 xl:max-h-max  "
-} flex flex-col w-full  bg-white overflow-hidden font-bold xl:flex-row xl:w-max xl:gap-x-8 xl:h-max xl:bg-transparent xl:pb-0 transition-all duration-150 text-center `}
-> */
-}
