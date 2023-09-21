@@ -4,14 +4,14 @@
 
 @layer base {
   body {
-    @apply text-primary bg-body;
+    @apply text-primary bg-white;
   }
   p {
     @apply text-secondary;
   }
 
   .h1 {
-    @apply text-5xl xl:text-[3.7rem] text-primary xl:leading-[72px] font-extrabold mb-[18px];
+    @apply text-5xl xl:text-[3.7rem]  text-primary xl:leading-[72px] font-extrabold mb-[18px];
   }
   .h2 {
     @apply text-4xl  mb-[6px] font-[bold];

@@ -25,7 +25,7 @@ const Hero = () => {
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: false, amount: 0.6 }}
-              className="h1 "
+              className="h1  max-sm:text-[2.5rem]  max-sm:mt-10"
             >
               Explore our Amazing <span className="text-accent">rental </span>
               offers
@@ -61,7 +61,7 @@ const Hero = () => {
             initial="hidden"
             whileInView={"show"}
             viewport={{ once: false, amount: 0.6 }}
-            className="flex-1 max-xl:w-[40rem] max-md:w-[35rem] max-sm:w-[28rem]"
+            className="flex-1 max-xl:w-[40rem] max-md:w-[35rem] max-sm:w-[22rem] max-sm:mt-[-3rem]  "
           >
             <Image src={hero} alt="" className="aspect-square object-fill" />
           </motion.div>

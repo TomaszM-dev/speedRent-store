@@ -15,10 +15,12 @@ import {
   BiSolidBasket,
   BiX,
 } from "react-icons/bi";
-import { ActivitySquare, ShoppingBag } from "lucide-react";
+
+import { AiFillShopping } from "react-icons/ai";
 
 import { SearchContext } from "@/context/search";
 import { containerVars, menuLinkVars, menuVars } from "@/animations/animations";
+import { ShoppingBag } from "lucide-react";
 
 // header component
 const linkData = [
@@ -111,12 +113,12 @@ const Header = () => {
   return (
     <header
       className={`${
-        header ? " bg-white shadow-md py-2" : "bg-transparent shadow-none py-"
-      } fixed w-full max-w-[1900px] py-6 mx-auto px-10 z-20 transition-all duration-300 text-[1.1rem] `}
+        header ? " bg-white shadow-sm py-2" : "bg-transparent shadow-none "
+      } fixed w-full max-w-[1920px] py-6 mx-auto px-10 z-20 transition-all duration-300 text-[1.1rem] max-sm:px-3`}
     >
       <div className="flex justify-between max-xl:justify-stretch items-center">
         <h1 className=" text-[1.5rem] max-xl:flex-1 ">
-          <Link to="/" className="">
+          <Link to="/" className="font-bold">
             Speed<span className="text-accent">Rental</span>
           </Link>
         </h1>
@@ -135,9 +137,19 @@ const Header = () => {
           ))}
         </div>
 
-        <div className=" flex gap-3 mx-5 items-center text-[1.1rem] font-semibold ">
-          <p className="text-primary">Our Offer</p>
-          <ShoppingBag className="text-3xl" />
+        <div className=" flex gap-3 mx-5 items-center  text-[1.1rem] font-semibold relative ">
+          <p className="text-[1.14rem] font-semibold text-primary">
+            Explore Collection |
+          </p>
+          <ShoppingBag className="text-[2.1rem] cursor-pointer" />
+          <motion.span
+            initial={{ scale: 0 }}
+            exit={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            className="bg-accent text-white text-[0.8rem] font-[500] w-5 h-5 rounded-full absolute top-[-0.4rem] right-[-0.6rem] items-center flex justify-center "
+          >
+            0
+          </motion.span>
         </div>
 
         <div
@@ -158,12 +170,12 @@ const Header = () => {
             initial="initial"
             exit="exit"
             animate="animate"
-            className="h-screen w-full fixed top-0 left-0 bg-white py-6 px-10  origin-top"
+            className="h-screen w-full fixed top-0 left-0 bg-white py-6 px-10  origin-top max-sm:px-3"
           >
             <div className="flex h-full flex-col">
               <div className="flex justify-between">
-                <h1 className="text-[1.5rem] ">
-                  Speed<span className="text-accent">Rental</span>
+                <h1 className="text-[1.5rem] font-bold ">
+                  Speed<span className=" text-accent">Rental</span>
                 </h1>
                 <BiX
                   onClick={() => setNav(false)}

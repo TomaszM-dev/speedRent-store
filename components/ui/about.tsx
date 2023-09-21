@@ -21,7 +21,7 @@ const About = () => {
 
   return (
     <section className="section flex items-center " id="about" ref={ref}>
-      <div className="container flex max-lg:flex-col justify-center">
+      <div className="container flex max-lg:flex-col justify-center ">
         <motion.div
           variants={fadeIn("up", 0.6)}
           initial="hidden"
@@ -106,7 +106,7 @@ const About = () => {
             variants={fadeIn("up", 0.6)}
             initial="hidden"
             whileInView={"show"}
-            className="mt-8 font-bold bg-accent text-white uppercase w-fit px-8 py-4 rounded-md"
+            className="mt-8 font-bold bg-accent text-white uppercase w-fit px-8 py-4 rounded-md "
           >
             See all cars
           </motion.button>

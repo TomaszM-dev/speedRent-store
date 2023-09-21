@@ -10,7 +10,7 @@ import mobile from "public/images/cta/phone.svg";
 
 const Contact = () => {
   return (
-    <section className="section flex items-center " id="contact">
+    <section className=" bg-gray-50 pt-48 flex items-center " id="contact">
       <div className="container mx-auto h-full xl:pt-10">
         <div className="flex items-center justify-center h-full max-xl:flex-col max-xl:pt-28  gap-10">
           <div className=" mt-16 xl:mt-0 flex-1  max-xl:text-center max-xl:pt-20 flex flex-col max-sm:gap-3  ml-10 max-md:ml-0">
