@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import carAbout from "/public/images/about/car01.png";
+import carAbout from "/public/images/about/scooter1.png";
 import {
   MdOutdoorGrill,
   MdOutlineBuildCircle,
@@ -41,7 +41,7 @@ const About = () => {
             whileInView={"show"}
             className="text-[2.2rem] font-semibold "
           >
-            Car services simplified.
+            Vehicle services simplified.
           </motion.h2>
           <motion.p
             variants={fadeIn("up", 0.4)}
@@ -70,7 +70,7 @@ const About = () => {
                 +
               </div>
               <p className="text-center uppercase font-semibold text-[0.9rem] leading-tight">
-                Car <br></br> Types
+                Vehicle <br></br> Types
               </p>
             </div>
             <div className="flex flex-col gap-2 mt-6 items-center">
@@ -98,7 +98,7 @@ const About = () => {
                 +
               </div>
               <p className=" uppercase font-semibold text-[0.9rem] leading-tight text-center">
-                Car <br></br> Types
+                Quick <br></br> fixes
               </p>
             </div>
           </motion.div>
@@ -108,7 +108,7 @@ const About = () => {
             whileInView={"show"}
             className="mt-8 font-bold bg-accent text-white uppercase w-fit px-8 py-4 rounded-md "
           >
-            See all cars
+            See our full offer
           </motion.button>
         </div>
       </div>

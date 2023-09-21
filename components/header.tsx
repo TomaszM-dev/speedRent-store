@@ -21,6 +21,9 @@ import { AiFillShopping } from "react-icons/ai";
 import { SearchContext } from "@/context/search";
 import { containerVars, menuLinkVars, menuVars } from "@/animations/animations";
 import { ShoppingBag } from "lucide-react";
+import DropDownMenu from "./dropdown-menu";
+import { useRouter } from "next/navigation";
+import CartActions from "./cart-button";
 
 // header component
 const linkData = [
@@ -79,6 +82,7 @@ const linkData = [
 const Header = () => {
   const [header, setHeader] = useState(false);
   const [nav, setNav] = useState(false);
+  const [open, setOpen] = useState(false);
 
   // @ts-ignore
   const { setSearchActive } = useContext(SearchContext);
@@ -87,7 +91,7 @@ const Header = () => {
     query: "(min-width: 1000px)",
   });
 
-  // links
+  const router = useRouter();
 
   // adding background to navbar when scrolled
   useEffect(() => {
@@ -110,6 +114,7 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   });
+
   return (
     <header
       className={`${
@@ -137,19 +142,18 @@ const Header = () => {
           ))}
         </div>
 
-        <div className=" flex gap-3 mx-5 items-center  text-[1.1rem] font-semibold relative ">
-          <p className="text-[1.14rem] font-semibold text-primary">
+        <div className=" flex gap-3 mx-5 items-center  text-[1.1rem] font-semibold ">
+          {/* 1 item */}
+          <p
+            onClick={() => setOpen(!open)}
+            className="max-xl:hidden  text-[1.14rem] font-semibold text-primary cursor-pointer"
+          >
             Explore Collection |
           </p>
-          <ShoppingBag className="text-[2.1rem] cursor-pointer" />
-          <motion.span
-            initial={{ scale: 0 }}
-            exit={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            className="bg-accent text-white text-[0.8rem] font-[500] w-5 h-5 rounded-full absolute top-[-0.4rem] right-[-0.6rem] items-center flex justify-center "
-          >
-            0
-          </motion.span>
+          {open && <DropDownMenu setOpen={setOpen} open={open} />}
+
+          {/* 2 item */}
+          <CartActions />
         </div>
 
         <div

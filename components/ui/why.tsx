@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import whycar from "public/images/why/car.svg";
+import whycar from "public/images/why/motocycle.png";
 import { MdHandshake, MdKey, MdTrendingUp } from "react-icons/md";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/animations/animations";
@@ -35,8 +35,10 @@ const Why = () => {
         >
           <Image
             alt=""
+            width={550}
+            height={500}
             src={whycar}
-            className="w-[80%] mx-auto max-md:w-[95%] max-md:my-10"
+            className=" mx-auto max-md:w-[95%] max-md:my-10 my-5"
           />
         </motion.div>
         <div className="flex items-center gap-14 mt-5 max-md:flex-col max-md:text-center max-md:w-[80%] max-md:mx-auto">
