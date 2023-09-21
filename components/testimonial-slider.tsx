@@ -40,7 +40,7 @@ const TestimonialSlider = () => {
         {testimonialData.map((person, index) => {
           return (
             <SwiperSlide key={index}>
-              <div className="flex flex-col items-center gap-4 max-sm:mt-40">
+              <div className="flex flex-col items-center gap-4 max-sm:mt-20">
                 <FaQuoteLeft className="text-6xl text-accent mb-6" />
                 <div className="text-[2.4rem] leading-10 w-[76%] max-sm:w-[88%] text-center max-sm:text-[1.3rem]">
                   {person.message}
