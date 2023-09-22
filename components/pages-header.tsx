@@ -3,7 +3,8 @@
 // react....
 import React from "react";
 import { useContext, useEffect, useState } from "react";
-import { Link } from "react-scroll";
+
+import Link from "next/link";
 import { useMediaQuery } from "react-responsive";
 
 // navi
@@ -22,14 +23,13 @@ import { containerVars, menuLinkVars, menuVars } from "@/animations/animations";
 import { SearchContext } from "@/context/search";
 import DropDownMenu from "./dropdown-menu";
 import CartActions from "./cart-button";
-import DropdownMenuComp from "./dropdown-menu-comp";
 
 // header data
 const linkData = [
   {
     name: "Home",
 
-    to: "home",
+    to: "/",
     activeClass: "active",
     spy: true,
   },
@@ -37,48 +37,48 @@ const linkData = [
   {
     name: "Products",
 
-    to: "products",
+    to: "/",
     activeClass: "active",
     spy: true,
   },
   {
     name: "About",
 
-    to: "about",
+    to: "/",
     activeClass: "active",
     spy: true,
   },
   {
     name: "Why us",
 
-    to: "why",
+    to: "/",
     activeClass: "active",
     spy: true,
   },
   {
     name: "Testimonials",
 
-    to: "testimonials",
+    to: "/",
     activeClass: "active",
     spy: true,
   },
   {
     name: "Contact",
 
-    to: "contact",
+    to: "/",
     activeClass: "active",
     spy: true,
   },
   {
     name: "",
 
-    to: "contact",
+    to: "/",
     activeClass: "active",
     spy: true,
   },
 ];
 
-const Header = () => {
+const PagesHeader = () => {
   const [header, setHeader] = useState(false);
   const [nav, setNav] = useState(false);
   const [open, setOpen] = useState(false);
@@ -123,36 +123,22 @@ const Header = () => {
     >
       <div className="flex justify-between max-xl:justify-stretch items-center">
         <h1 className=" text-[1.5rem] max-xl:flex-1 ">
-          <Link to="/" className="font-bold">
+          <Link href="/" className="font-bold">
             Speed<span className="text-accent">Rental</span>
           </Link>
         </h1>
-        <div className="flex items-center max-xl:hidden text-[1.1rem] gap-6 text-primary font-semibold ml-16">
-          {linkData.map((link) => (
-            <Link
-              className="cursor-pointer"
-              key={link.name}
-              to={link.to}
-              activeClass={link.activeClass}
-              spy={link.spy}
-              smooth={desktopMode}
-            >
-              {link.name}
-            </Link>
-          ))}
-        </div>
 
-        <div className=" flex gap-3 mx-5 items-center  text-[1.1rem] font-semibold ">
-          {/* 1 item */}
-          <DropdownMenuComp open={open} setOpen={setOpen} />
-
-          {/* 2 item */}
+        <div className=" flex-1 flex gap-3  items-center  text-[1.1rem] font-semibold ">
+          <div className="w-full flex items-center justify-end  text-[1.2rem] gap-4">
+            <span>Cars</span>
+            <span>Skooters</span>
+          </div>
           <CartActions />
         </div>
 
         <div
           onClick={() => setNav(!nav)}
-          className="  cursor-pointer xl:hidden flex items-center"
+          className="  cursor-pointer  flex items-center"
         >
           {nav ? (
             <BiX className="text-4xl" />
@@ -191,7 +177,7 @@ const Header = () => {
                   <motion.div className="overflow-hidden">
                     <MobileNavLink
                       key={index}
-                      to={link.to}
+                      href="/"
                       spy={link.spy}
                       activeClass={link.activeClass}
                       name={link.name}
@@ -208,13 +194,13 @@ const Header = () => {
     </header>
   );
 };
-const MobileNavLink = ({ to, activeClass, spy, smooth, name, setNav }) => {
+const MobileNavLink = ({ activeClass, spy, smooth, name, setNav }) => {
   return (
     <motion.div variants={menuLinkVars}>
       <Link
         onClick={() => setNav(false)}
         className="cursor-pointer"
-        to={to}
+        href="/"
         key={name}
         activeClass={activeClass}
         spy={spy}
@@ -226,4 +212,4 @@ const MobileNavLink = ({ to, activeClass, spy, smooth, name, setNav }) => {
   );
 };
 
-export default Header;
+export default PagesHeader;
