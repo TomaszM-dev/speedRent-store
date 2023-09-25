@@ -4,8 +4,13 @@ import BrandsImages from "./brands";
 import ProductSlider from "../sliders/product-slider";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/animations/animations";
+import { Product } from "@/types";
 
-const Products = () => {
+interface ProductsProps {
+  products: Product[];
+}
+
+const Products = ({ products }: ProductsProps) => {
   return (
     <section className="section  flex items-center w-full " id="products">
       <motion.div className="container  mx-auto flex flex-col gap-20 max-sm:gap-10 ">
@@ -21,7 +26,7 @@ const Products = () => {
           initial="hidden"
           whileInView={"show"}
         >
-          <ProductSlider />
+          <ProductSlider products={products} />
         </motion.div>
       </motion.div>
     </section>

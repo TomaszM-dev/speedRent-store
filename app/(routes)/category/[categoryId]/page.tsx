@@ -1,7 +1,7 @@
 import React from "react";
 
 const CategoryPage = () => {
-  return <div>hello id category</div>;
+  return <div className="h-[100rem]">hello id category</div>;
 };
 
 export default CategoryPage;

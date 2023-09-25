@@ -8,13 +8,17 @@ import Products from "@/components/home-page-ui/products";
 import Testimonials from "@/components/home-page-ui/testimonials";
 import Why from "@/components/home-page-ui/why";
 
-export default function Home() {
+import getProducts from "@/actions/get-products";
+
+export default async function Home() {
+  const products = await getProducts({ isFeatured: true });
+
   return (
     <div className="max-w-[1920px] bg-white mx-auto relative overflow-hidden ">
       {/*  @ts-ignore */}
       <Navbar />
       <Hero />
-      <Products />
+      <Products products={products} />
       <About />
       <Why />
       <Testimonials />
