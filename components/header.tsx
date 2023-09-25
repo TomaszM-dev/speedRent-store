@@ -80,7 +80,11 @@ const linkData = [
   },
 ];
 
-const Header = ({ categories }: Category) => {
+interface CategoryProps {
+  categories: Category[];
+}
+
+const Header = ({ categories }: CategoryProps) => {
   const [header, setHeader] = useState(false);
   const [nav, setNav] = useState(false);
   const [open, setOpen] = useState(false);
@@ -214,7 +218,24 @@ const Header = ({ categories }: Category) => {
     </header>
   );
 };
-const MobileNavLink = ({ to, activeClass, spy, smooth, name, setNav }) => {
+
+interface MobileNavProps {
+  activeClass: string;
+  spy: boolean;
+  name: string;
+  setNav: React.Dispatch<React.SetStateAction<boolean>>;
+  smooth: boolean;
+  to: string;
+}
+
+const MobileNavLink = ({
+  to,
+  activeClass,
+  spy,
+  smooth,
+  name,
+  setNav,
+}: MobileNavProps) => {
   return (
     <motion.div variants={menuLinkVars}>
       <Link

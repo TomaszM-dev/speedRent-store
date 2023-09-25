@@ -33,6 +33,7 @@ const TestimonialSlider = () => {
       whileInView={"show"}
     >
       <Swiper
+        // @ts-ignore
         slidesPerView={1}
         pagination={{ clickable: true, dynamicBullets: true }}
         className="h-[450px] xl:h-[400px]"

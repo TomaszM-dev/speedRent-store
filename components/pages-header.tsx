@@ -24,12 +24,24 @@ import { SearchContext } from "@/context/search";
 import DropDownMenu from "./dropdown-menu";
 import CartActions from "./cart-button";
 import { cn } from "@/lib/utils";
+import { Category } from "@/types";
+
+//interface for categories
+interface CategoryProps {
+  categories: Category[];
+}
+
+interface LinkDataType {
+  name: string;
+  to: string;
+  activeClass: string;
+  spy: boolean;
+}
 
 // header data
-const linkData = [
+const linkData: LinkDataType[] = [
   {
     name: "Home",
-
     to: "/",
     activeClass: "active",
     spy: true,
@@ -79,7 +91,7 @@ const linkData = [
   },
 ];
 
-const PagesHeader = ({ categories }) => {
+const PagesHeader = ({ categories }: CategoryProps) => {
   const [header, setHeader] = useState(false);
   const [nav, setNav] = useState(false);
   const [open, setOpen] = useState(false);
@@ -207,7 +219,22 @@ const PagesHeader = ({ categories }) => {
     </header>
   );
 };
-const MobileNavLink = ({ activeClass, spy, smooth, name, setNav }) => {
+
+interface MobileNavProps {
+  activeClass: string;
+  spy: boolean;
+  name: string;
+  setNav: React.Dispatch<React.SetStateAction<boolean>>;
+  smooth: boolean;
+}
+
+const MobileNavLink = ({
+  activeClass,
+  spy,
+  smooth,
+  name,
+  setNav,
+}: MobileNavProps) => {
   return (
     <motion.div variants={menuLinkVars}>
       <Link
@@ -215,6 +242,7 @@ const MobileNavLink = ({ activeClass, spy, smooth, name, setNav }) => {
         className="cursor-pointer"
         href="/"
         key={name}
+        // @ts-ignore
         activeClass={activeClass}
         spy={spy}
         smooth={smooth}

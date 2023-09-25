@@ -66,6 +66,7 @@ const ProductSlider = () => {
   return (
     <div className="container mx-auto  ">
       <Swiper
+        // @ts-ignore
         spaceBetween={20}
         slidesPerView={desktopMode ? 3 : 1}
         navigation

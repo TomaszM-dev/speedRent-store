@@ -1,8 +1,14 @@
 import getCategories from "@/actions/get-categories";
+import { Category } from "@/types";
 import Link from "next/link";
 import React from "react";
 
-const DropDownMenu = ({ setOpen, categories }) => {
+interface DropDownMenuProps {
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  categories: Category[];
+}
+
+const DropDownMenu = ({ setOpen, categories }: DropDownMenuProps) => {
   console.log(categories);
   return (
     <div
