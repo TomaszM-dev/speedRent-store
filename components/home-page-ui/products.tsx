@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import BrandsImages from "../brands";
-import ProductSlider from "../product-slider";
+import BrandsImages from "./brands";
+import ProductSlider from "../sliders/product-slider";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/animations/animations";
 

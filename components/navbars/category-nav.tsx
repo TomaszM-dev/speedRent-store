@@ -3,7 +3,8 @@
 // react....
 import React from "react";
 import { useContext, useEffect, useState } from "react";
-import { Link } from "react-scroll";
+
+import Link from "next/link";
 import { useMediaQuery } from "react-responsive";
 
 // navi
@@ -20,18 +21,28 @@ import { containerVars, menuLinkVars, menuVars } from "@/animations/animations";
 
 // components & context
 import { SearchContext } from "@/context/search";
-import DropDownMenu from "./dropdown-menu";
-import CartActions from "./cart-button";
-import DropdownMenuComp from "./dropdown-menu-comp";
-
+import DropDownMenu from "../dropdown-menu/dropdown-menu";
+import CartActions from "../cart-button";
+import { cn } from "@/lib/utils";
 import { Category } from "@/types";
 
+//interface for categories
+interface CategoryProps {
+  categories: Category[];
+}
+
+interface LinkDataType {
+  name: string;
+  to: string;
+  activeClass: string;
+  spy: boolean;
+}
+
 // header data
-const linkData = [
+const linkData: LinkDataType[] = [
   {
     name: "Home",
-
-    to: "home",
+    to: "/",
     activeClass: "active",
     spy: true,
   },
@@ -39,52 +50,48 @@ const linkData = [
   {
     name: "Products",
 
-    to: "products",
+    to: "/",
     activeClass: "active",
     spy: true,
   },
   {
     name: "About",
 
-    to: "about",
+    to: "/",
     activeClass: "active",
     spy: true,
   },
   {
     name: "Why us",
 
-    to: "why",
+    to: "/",
     activeClass: "active",
     spy: true,
   },
   {
     name: "Testimonials",
 
-    to: "testimonials",
+    to: "/",
     activeClass: "active",
     spy: true,
   },
   {
     name: "Contact",
 
-    to: "contact",
+    to: "/",
     activeClass: "active",
     spy: true,
   },
   {
     name: "",
 
-    to: "contact",
+    to: "/",
     activeClass: "active",
     spy: true,
   },
 ];
 
-interface CategoryProps {
-  categories: Category[];
-}
-
-const Header = ({ categories }: CategoryProps) => {
+const CategoryNav = ({ categories }: CategoryProps) => {
   const [header, setHeader] = useState(false);
   const [nav, setNav] = useState(false);
   const [open, setOpen] = useState(false);
@@ -98,6 +105,7 @@ const Header = ({ categories }: CategoryProps) => {
 
   const router = useRouter();
   const pathname = usePathname();
+  console.log(pathname);
 
   // adding background to navbar when scrolled
   useEffect(() => {
@@ -129,40 +137,33 @@ const Header = ({ categories }: CategoryProps) => {
     >
       <div className="flex justify-between max-xl:justify-stretch items-center">
         <h1 className=" text-[1.5rem] max-xl:flex-1 ">
-          <Link to="/" className="font-bold">
+          <Link href="/" className="font-bold">
             Speed<span className="text-accent">Rental</span>
           </Link>
         </h1>
-        <div className="flex items-center max-xl:hidden text-[1.1rem] gap-6 text-primary font-semibold ml-16">
-          {linkData.map((link) => (
-            <Link
-              className="cursor-pointer"
-              key={link.name}
-              to={link.to}
-              activeClass={link.activeClass}
-              spy={link.spy}
-              smooth={desktopMode}
-            >
-              {link.name}
-            </Link>
-          ))}
-        </div>
 
-        <div className=" flex gap-3 mx-5 items-center  text-[1.1rem] font-semibold ">
-          {/* 1 item */}
-          <DropdownMenuComp
-            open={open}
-            setOpen={setOpen}
-            categories={categories}
-          />
-
-          {/* 2 item */}
+        <div className=" flex-1 flex gap-3  items-center  text-[1.1rem] font-semibold ">
+          <div className="w-full flex items-center justify-end  text-[1.2rem] gap-4">
+            {categories.map((cat) => (
+              <Link
+                className={cn(
+                  pathname === `/category/${cat.id}`
+                    ? "text-accent"
+                    : "text-black"
+                )}
+                href={`/category/${cat.id}`}
+                key={cat.id}
+              >
+                {cat.name}
+              </Link>
+            ))}
+          </div>
           <CartActions />
         </div>
 
         <div
           onClick={() => setNav(!nav)}
-          className="  cursor-pointer xl:hidden flex items-center"
+          className="  cursor-pointer  flex items-center"
         >
           {nav ? (
             <BiX className="text-4xl" />
@@ -201,7 +202,7 @@ const Header = ({ categories }: CategoryProps) => {
                   <motion.div className="overflow-hidden">
                     <MobileNavLink
                       key={index}
-                      to={link.to}
+                      href="/"
                       spy={link.spy}
                       activeClass={link.activeClass}
                       name={link.name}
@@ -225,11 +226,9 @@ interface MobileNavProps {
   name: string;
   setNav: React.Dispatch<React.SetStateAction<boolean>>;
   smooth: boolean;
-  to: string;
 }
 
 const MobileNavLink = ({
-  to,
   activeClass,
   spy,
   smooth,
@@ -241,8 +240,9 @@ const MobileNavLink = ({
       <Link
         onClick={() => setNav(false)}
         className="cursor-pointer"
-        to={to}
+        href="/"
         key={name}
+        // @ts-ignore
         activeClass={activeClass}
         spy={spy}
         smooth={smooth}
@@ -253,4 +253,4 @@ const MobileNavLink = ({
   );
 };
 
-export default Header;
+export default CategoryNav;

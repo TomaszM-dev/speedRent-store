@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import TestimonialSlider from "../testimonial-slider";
+import TestimonialSlider from "../sliders/testimonial-slider";
 
 const Testimonials = () => {
   return (

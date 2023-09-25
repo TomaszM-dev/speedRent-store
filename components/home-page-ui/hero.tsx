@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { useContext } from "react";
 
-import Search from "../search-modal";
+import Search from "../modals/search-modal";
 import { SearchContext } from "@/context/search";
 
 import hero from "public/images/hero/car.svg";

@@ -1,7 +1,7 @@
 import getCategories from "@/actions/get-categories";
-import PagesHeader from "@/components/pages-header";
+import CategoryNav from "@/components/navbars/category-nav";
+
 import Footer from "@/components/ui/footer";
-import { redirect } from "next/navigation";
 
 export default async function CategoryLayout({
   children,
@@ -12,7 +12,7 @@ export default async function CategoryLayout({
 
   return (
     <>
-      <PagesHeader categories={categories} />
+      <CategoryNav categories={categories} />
       {children}
     </>
   );
