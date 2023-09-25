@@ -1,7 +1,9 @@
+import getCategories from "@/actions/get-categories";
 import Link from "next/link";
 import React from "react";
 
-const DropDownMenu = ({ open, setOpen }) => {
+const DropDownMenu = ({ setOpen, categories }) => {
+  console.log(categories);
   return (
     <div
       onClick={() => setOpen(false)}
@@ -12,14 +14,13 @@ const DropDownMenu = ({ open, setOpen }) => {
         className=" absolute bg-white font-semibold  shadow-md rounded-md top-16 mx-4  right-[4.2rem] text-start"
       >
         <ul className="flex flex-col gap-1  ">
-          <Link href="/category">
-            <li className="px-12 border-b-[1px] hover:bg-slate-50  w-full h-full py-3 cursor-pointer">
-              Cars
-            </li>
-          </Link>
-          <li className="px-12 py-3 hover:bg-slate-50  cursor-pointer">
-            Skooters
-          </li>
+          {categories.map((cat) => (
+            <Link href={`/category/${cat.id}`} key={cat.id}>
+              <li className="px-12 border-b-[1px] hover:bg-slate-50  w-full h-full py-3 cursor-pointer">
+                {cat.name}
+              </li>
+            </Link>
+          ))}
         </ul>
       </div>
     </div>

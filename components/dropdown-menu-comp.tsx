@@ -1,7 +1,8 @@
+import getCategories from "@/actions/get-categories";
 import React from "react";
 import DropDownMenu from "./dropdown-menu";
 
-const DropdownMenuComp = ({ setOpen, open }) => {
+const DropdownMenuComp = ({ setOpen, open, categories }) => {
   return (
     <div>
       <p
@@ -10,7 +11,9 @@ const DropdownMenuComp = ({ setOpen, open }) => {
       >
         Explore Collection |
       </p>
-      {open && <DropDownMenu setOpen={setOpen} open={open} />}
+      {open && (
+        <DropDownMenu setOpen={setOpen} open={open} categories={categories} />
+      )}
     </div>
   );
 };

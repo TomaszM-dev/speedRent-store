@@ -23,6 +23,7 @@ import { containerVars, menuLinkVars, menuVars } from "@/animations/animations";
 import { SearchContext } from "@/context/search";
 import DropDownMenu from "./dropdown-menu";
 import CartActions from "./cart-button";
+import { cn } from "@/lib/utils";
 
 // header data
 const linkData = [
@@ -78,7 +79,7 @@ const linkData = [
   },
 ];
 
-const PagesHeader = () => {
+const PagesHeader = ({ categories }) => {
   const [header, setHeader] = useState(false);
   const [nav, setNav] = useState(false);
   const [open, setOpen] = useState(false);
@@ -92,6 +93,7 @@ const PagesHeader = () => {
 
   const router = useRouter();
   const pathname = usePathname();
+  console.log(pathname);
 
   // adding background to navbar when scrolled
   useEffect(() => {
@@ -130,8 +132,19 @@ const PagesHeader = () => {
 
         <div className=" flex-1 flex gap-3  items-center  text-[1.1rem] font-semibold ">
           <div className="w-full flex items-center justify-end  text-[1.2rem] gap-4">
-            <span>Cars</span>
-            <span>Skooters</span>
+            {categories.map((cat) => (
+              <Link
+                className={cn(
+                  pathname === `/category/${cat.id}`
+                    ? "text-accent"
+                    : "text-black"
+                )}
+                href={`/category/${cat.id}`}
+                key={cat.id}
+              >
+                {cat.name}
+              </Link>
+            ))}
           </div>
           <CartActions />
         </div>

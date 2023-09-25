@@ -24,6 +24,8 @@ import DropDownMenu from "./dropdown-menu";
 import CartActions from "./cart-button";
 import DropdownMenuComp from "./dropdown-menu-comp";
 
+import { Category } from "@/types";
+
 // header data
 const linkData = [
   {
@@ -78,7 +80,7 @@ const linkData = [
   },
 ];
 
-const Header = () => {
+const Header = ({ categories }: Category) => {
   const [header, setHeader] = useState(false);
   const [nav, setNav] = useState(false);
   const [open, setOpen] = useState(false);
@@ -144,7 +146,11 @@ const Header = () => {
 
         <div className=" flex gap-3 mx-5 items-center  text-[1.1rem] font-semibold ">
           {/* 1 item */}
-          <DropdownMenuComp open={open} setOpen={setOpen} />
+          <DropdownMenuComp
+            open={open}
+            setOpen={setOpen}
+            categories={categories}
+          />
 
           {/* 2 item */}
           <CartActions />
