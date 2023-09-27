@@ -48,5 +48,6 @@ export interface Brand {
 }
 export interface Type {
   id: string;
+  imageUrl: string;
   name: string;
 }

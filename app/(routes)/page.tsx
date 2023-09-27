@@ -14,7 +14,7 @@ export default async function Home() {
   const products = await getProducts({ isFeatured: true });
 
   return (
-    <div className="max-w-[1920px] bg-white mx-auto relative overflow-hidden ">
+    <div className=" bg-white mx-auto relative overflow-hidden ">
       {/*  @ts-ignore */}
       <Navbar />
       <Hero />

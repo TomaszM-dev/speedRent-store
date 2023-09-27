@@ -4,7 +4,7 @@
 import { ShoppingBag } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import Button from "./button";
+import Button from "./ui/button";
 import { motion } from "framer-motion";
 
 const CartActions = () => {

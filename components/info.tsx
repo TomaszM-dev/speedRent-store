@@ -4,7 +4,7 @@ import { Product } from "@/types";
 // import useCart from "@/use-cart";
 import { ShoppingCart, Star } from "lucide-react";
 import React, { MouseEventHandler } from "react";
-import Button from "./button";
+import Button from "./ui/button";
 import Currency from "./ui/currency";
 
 interface InfoProps {
@@ -19,8 +19,6 @@ const Info: React.FC<InfoProps> = ({ data }) => {
   };
 
   const starRate = Number(data.rate.value);
-  console.log(starRate);
-
   const starRateArray = Array.from({ length: starRate }, () => <Star />);
 
   return (

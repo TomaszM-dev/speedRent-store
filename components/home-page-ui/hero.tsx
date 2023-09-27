@@ -16,7 +16,7 @@ const Hero = () => {
   // @ts-ignore
   const { searchActive } = useContext(SearchContext);
   return (
-    <section className="h-screen xl:h-[90vh] bg-[#b2b7c2]/10 " id="home">
+    <section className="h-screen xl:h-[90vh] bg-[#b2b7c2]/10  " id="home">
       <div className="container mx-auto h-full xl:pt-10">
         <div className="flex items-center justify-center h-full max-xl:flex-col max-xl:pt-28  gap-10">
           <div className=" mt-16 xl:mt-0 flex-1  max-xl:text-center max-xl:pt-20 flex flex-col max-sm:gap-3">
