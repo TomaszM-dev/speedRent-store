@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 
 import Search from "../modals/search-modal";
 import { SearchContext } from "@/context/search";
@@ -11,10 +11,29 @@ import googlePlay from "public/icons/buttons/google-play.svg";
 
 import { fadeIn } from "@/animations/animations";
 import { AnimatePresence, easeInOut, motion } from "framer-motion";
+import { Brand, Location, Type } from "@/types";
+import { useFetch } from "@/hooks/use-fetch";
 
-const Hero = () => {
+interface SearchProps {
+  brands: Brand[];
+  locations: Location[];
+  types: Type[];
+}
+
+const Hero = ({ brands, locations, types }: SearchProps) => {
   // @ts-ignore
+
   const { searchActive } = useContext(SearchContext);
+
+  // data for search
+  const fetchData = useFetch();
+
+  useEffect(() => {
+    fetchData.addAllBrands(brands);
+    fetchData.addAllLocations(locations);
+    fetchData.addAllTypes(types);
+  }, []);
+
   return (
     <section className="h-screen xl:h-[90vh] bg-[#b2b7c2]/10  " id="home">
       <div className="container mx-auto h-full xl:pt-10">

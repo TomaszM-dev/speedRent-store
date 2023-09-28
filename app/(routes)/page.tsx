@@ -9,15 +9,21 @@ import Testimonials from "@/components/home-page-ui/testimonials";
 import Why from "@/components/home-page-ui/why";
 
 import getProducts from "@/actions/get-products";
+import getLocations from "@/actions/get-location";
+import getBrands from "@/actions/get-brand";
+import getTypes from "@/actions/get-types";
 
 export default async function Home() {
   const products = await getProducts({ isFeatured: true });
+  const locations = await getLocations();
+  const brands = await getBrands();
+  const types = await getTypes();
 
   return (
     <div className=" bg-white mx-auto relative overflow-hidden ">
       {/*  @ts-ignore */}
       <Navbar />
-      <Hero />
+      <Hero brands={brands} locations={locations} types={types} />
       <Products products={products} />
       <About />
       <Why />

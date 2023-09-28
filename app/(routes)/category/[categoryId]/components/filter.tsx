@@ -7,6 +7,8 @@ import Button from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Brand, Type, Power, Location, Rate } from "@/types";
 import Image from "next/image";
+import { useFetch } from "@/hooks/use-fetch";
+import { useEffect } from "react";
 
 interface FilterProps {
   data: (Rate | Brand | Type | Power | Location)[];

@@ -8,6 +8,7 @@ import getTypes from "@/actions/get-types";
 import ProductCard from "@/components/product-card";
 import ProductList from "@/components/product-list";
 import NoResults from "@/components/ui/no-results";
+import { useFetch } from "@/hooks/use-fetch";
 import { Star } from "lucide-react";
 import Image from "next/image";
 import React from "react";
@@ -57,8 +58,10 @@ const CategoryPage = async ({ params, searchParams }: CategoryPageProps) => {
             <Filter valueKey="locationId" name="Locations" data={locations} />
           </div>
         </div>
-        <div className="flex-[75%] grid grid-cols-2 xxl:grid-cols-3 max-md:grid-cols-1 gap-4 h-fit w-full  ">
-          {products.length === 0 && <NoResults />}
+        <div className="flex-[75%] grid grid-cols-2 xxl:grid-cols-3 max-md:grid-cols-1 gap-4 h-fit w-full relative ">
+          {products.length === 0 && (
+            <NoResults categoryId={params.categoryId} />
+          )}
           {products.map((item) => (
             <ProductCard key={item.id} car={item} />
           ))}
