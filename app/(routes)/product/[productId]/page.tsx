@@ -1,3 +1,4 @@
+import getCategories from "@/actions/get-categories";
 import getProduct from "@/actions/get-product";
 import getProducts from "@/actions/get-products";
 import Gallery from "@/components/gallery";
@@ -18,7 +19,8 @@ const ProductPage = async ({ params }: ProductPageProps) => {
     categoryId: product?.category?.id,
   });
 
-  console.log(product);
+  const category = await getCategories();
+  console.log(category);
 
   return (
     <div className="section container ">
@@ -29,7 +31,7 @@ const ProductPage = async ({ params }: ProductPageProps) => {
             <Info data={product} />
           </div>
         </div>
-        <hr className="my-10"></hr>
+        <hr className="my-12"></hr>
         <ProductList items={suggestedProducts} />
       </div>
     </div>

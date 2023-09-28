@@ -50,7 +50,7 @@ const CategoryPage = async ({ params, searchParams }: CategoryPageProps) => {
   return (
     <div className="w-full pb-10 bg-[#b2b7c2]/10 text-black">
       <div className="  flex w-full pt-40 min-xxl:container  mx-auto px-10 max-w-[1600px] gap-10">
-        <div className=" flex-[25%] border-[1px] bg-white px-6 py-6 flex flex-col ">
+        <div className=" flex-[25%] max-md:flex-[45%] border-[1px] bg-white px-6 py-6 flex flex-col ">
           <ResetFilter categoryId={params.categoryId} />
           <div className="flex flex-col mt-8 gap-4">
             <Filter valueKey="typeId" name="Types" data={types} />

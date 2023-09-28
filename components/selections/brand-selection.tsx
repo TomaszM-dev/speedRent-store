@@ -5,7 +5,12 @@ import React, { useState } from "react";
 import { FaMapMarkedAlt, FaMapMarker } from "react-icons/fa";
 import { MdBrandingWatermark } from "react-icons/md";
 
-const BrandSelection = ({ brand, setBrand }) => {
+interface BrandSelectionProps {
+  brand: string;
+  setBrand: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const BrandSelection = ({ brand, setBrand }: BrandSelectionProps) => {
   const data = useFetch();
 
   return (
@@ -14,11 +19,11 @@ const BrandSelection = ({ brand, setBrand }) => {
         <Menu.Button className="dropdown-menu w-full  h-full flex flex-col  ">
           <div className="flex gap-2 items-center">
             <MdBrandingWatermark className="text-accent text-[1.1rem]" />
-            <div className="uppercase font-bold text-[1.1rem]">
+            <div className="uppercase font-bold text-[1.1rem] ">
               Select Brand
             </div>
           </div>
-          <div className=" ml-6">{brand}</div>
+          <div className=" ml-6 text-secondary">{brand}</div>
         </Menu.Button>
 
         <Menu.Items className=" text-center w-[20rem]  rounded-lg   dropdown-menu shadow-xl absolute top-[5.5rem] bg-white left-[50%] translate-x-[-50%] ">
@@ -28,7 +33,7 @@ const BrandSelection = ({ brand, setBrand }) => {
               onClick={() => {
                 setBrand(item.name);
               }}
-              className="py-4 text-black hover:bg-gray-50 font-semibold"
+              className="py-4 text-secondary  hover:bg-gray-50 font-semibold"
             >
               {item.name}
             </div>

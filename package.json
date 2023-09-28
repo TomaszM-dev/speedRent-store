@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
+    "@lottiefiles/react-lottie-player": "^3.5.2",
     "@types/node": "20.6.0",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
@@ -36,10 +37,10 @@
     "tailwind-merge": "^1.14.0",
     "tailwindcss": "3.3.3",
     "typescript": "5.2.2",
-    "zustand": "^4.4.1",
-    "@lottiefiles/react-lottie-player": "^3.5.2"
+    "zustand": "^4.4.1"
   },
   "devDependencies": {
+    "@types/react-date-range": "^1.4.5",
     "@types/react-scroll": "^1.8.7"
   }
 }

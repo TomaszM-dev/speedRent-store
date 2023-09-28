@@ -103,7 +103,6 @@ const CategoryNav = ({ categories }: CategoryProps) => {
 
   const router = useRouter();
   const pathname = usePathname();
-  console.log(pathname);
 
   // adding background to navbar when scrolled
   useEffect(() => {
@@ -146,13 +145,13 @@ const CategoryNav = ({ categories }: CategoryProps) => {
               <Link
                 className={cn(
                   pathname === `/category/${cat.id}`
-                    ? "text-accent"
+                    ? "text-black"
                     : "text-black"
                 )}
                 href={`/category/${cat.id}`}
                 key={cat.id}
               >
-                {cat.name}
+                Explore Collection
               </Link>
             ))}
           </div>
@@ -163,11 +162,12 @@ const CategoryNav = ({ categories }: CategoryProps) => {
           onClick={() => setNav(!nav)}
           className="  cursor-pointer  flex items-center"
         >
-          {nav ? (
+          {/* {nav ? (
             <BiX className="text-4xl" />
           ) : (
             <BiMenuAltRight className="text-4xl" />
-          )}
+          )} */}
+          <BiMenuAltRight className="text-4xl" />
         </div>
       </div>
       <AnimatePresence>

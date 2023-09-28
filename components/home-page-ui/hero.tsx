@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import Search from "../modals/search-modal";
 import { SearchContext } from "@/context/search";
@@ -13,6 +13,7 @@ import { fadeIn } from "@/animations/animations";
 import { AnimatePresence, easeInOut, motion } from "framer-motion";
 import { Brand, Location, Type } from "@/types";
 import { useFetch } from "@/hooks/use-fetch";
+import SearchModal from "../modals/search-modal";
 
 interface SearchProps {
   brands: Brand[];
@@ -33,6 +34,10 @@ const Hero = ({ brands, locations, types }: SearchProps) => {
     fetchData.addAllLocations(locations);
     fetchData.addAllTypes(types);
   }, []);
+
+  const [location, setLocation] = useState("Select Location");
+  const [type, setType] = useState("Select Type");
+  const [brand, setBrand] = useState("Select Brand");
 
   return (
     <section className="h-screen xl:h-[90vh] bg-[#b2b7c2]/10  " id="home">
@@ -95,7 +100,14 @@ const Hero = ({ brands, locations, types }: SearchProps) => {
             transition={{ ease: easeInOut }}
             className="fixed top-[80px] z-10 w-full max-w-[1920px]"
           >
-            <Search />
+            <SearchModal
+              location={location}
+              setLocation={setLocation}
+              type={type}
+              setType={setType}
+              brand={brand}
+              setBrand={setBrand}
+            />
           </motion.div>
         ) : (
           <div className="-mt-12 w-full mx-auto max-w-[1300px]">
@@ -106,7 +118,14 @@ const Hero = ({ brands, locations, types }: SearchProps) => {
               exit="hidden"
               viewport={{ once: false, amount: 0.6 }}
             >
-              <Search />
+              <SearchModal
+                location={location}
+                setLocation={setLocation}
+                type={type}
+                setType={setType}
+                brand={brand}
+                setBrand={setBrand}
+              />
             </motion.div>
           </div>
         )}

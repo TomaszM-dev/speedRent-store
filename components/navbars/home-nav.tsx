@@ -150,11 +150,19 @@ const HomeNav = ({ categories }: CategoryProps) => {
 
         <div className=" flex gap-3 mx-5 items-center  text-[1.1rem] font-semibold ">
           {/* 1 item */}
-          <DropdownMenuComp
+          {/* <DropdownMenuComp
             open={open}
             setOpen={setOpen}
             categories={categories}
-          />
+          /> */}
+          <p
+            className="max-xl:hidden  text-[1.14rem] font-semibold text-primary cursor-pointer"
+            onClick={() => {
+              router.push(`/category/${categories[0].id}`);
+            }}
+          >
+            Explore Collection |
+          </p>
 
           {/* 2 item */}
           <CartActions />
@@ -164,11 +172,12 @@ const HomeNav = ({ categories }: CategoryProps) => {
           onClick={() => setNav(!nav)}
           className="  cursor-pointer xl:hidden flex items-center"
         >
-          {nav ? (
+          {/* {nav ? (
             <BiX className="text-4xl" />
           ) : (
             <BiMenuAltRight className="text-4xl" />
-          )}
+          )} */}
+          <BiMenuAltRight className="text-4xl" />
         </div>
       </div>
       <AnimatePresence>

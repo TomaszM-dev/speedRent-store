@@ -5,7 +5,15 @@ import { Menu } from "@headlessui/react";
 import React, { useState } from "react";
 import { FaMapMarkedAlt, FaMapMarker } from "react-icons/fa";
 
-const LocationSelection = ({ location, setLocation }) => {
+interface LocationSelectionProps {
+  location: string;
+  setLocation: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const LocationSelection = ({
+  location,
+  setLocation,
+}: LocationSelectionProps) => {
   const data = useFetch();
 
   return (
@@ -18,7 +26,7 @@ const LocationSelection = ({ location, setLocation }) => {
               Select Location
             </div>
           </div>
-          <div className=" ml-6">{location}</div>
+          <div className=" text-secondary ml-6">{location}</div>
         </Menu.Button>
 
         <Menu.Items className=" text-center w-[20rem]  rounded-lg   dropdown-menu shadow-xl absolute top-[5.5rem] bg-white left-[50%] translate-x-[-50%] ">
@@ -28,7 +36,7 @@ const LocationSelection = ({ location, setLocation }) => {
               onClick={() => {
                 setLocation(item.name);
               }}
-              className="py-4 text-black hover:bg-gray-50 font-semibold"
+              className="py-4 text-secondary hover:bg-gray-50 font-semibold"
             >
               {item.name}
             </div>

@@ -1,6 +1,7 @@
 import getLocations from "@/actions/get-location";
 import { SearchContext } from "@/context/search";
 import { useFetch } from "@/hooks/use-fetch";
+import { Type } from "@/types";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 import BrandSelection from "../selections/brand-selection";
@@ -8,13 +9,27 @@ import LocationSelection from "../selections/location-selection";
 import TypeSelection from "../selections/type-selection";
 import Button from "../ui/button";
 
-export default function Search() {
+interface SearchModalProps {
+  location: string;
+  setLocation: React.Dispatch<React.SetStateAction<string>>;
+  brand: string;
+  setBrand: React.Dispatch<React.SetStateAction<string>>;
+  type: string;
+  setType: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export default function SearchModal({
+  location,
+  setLocation,
+  brand,
+  setBrand,
+  type,
+  setType,
+}: SearchModalProps) {
   // @ts-ignore
 
   const { searchActive } = useContext(SearchContext);
-  const [location, setLocation] = useState("Select Location");
-  const [type, setType] = useState("Select Type");
-  const [brand, setBrand] = useState("Select Brand");
+
   const [disable, setDisable] = useState(false);
   const data = useFetch();
   const router = useRouter();
