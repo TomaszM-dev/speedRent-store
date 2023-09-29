@@ -19,7 +19,7 @@ const Currency: React.FC<CurrencyProps> = ({ value }) => {
 
   return (
     <div className="font-semibold text-accent">
-      {formatter.format(Number(value))}/ DAY
+      {formatter.format(Number(value))}
     </div>
   );
 };
