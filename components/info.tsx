@@ -1,9 +1,12 @@
 "use client";
+import useCart from "@/hooks/use-cart";
 import { Product } from "@/types";
+import { format } from "date-fns/esm";
 
 // import useCart from "@/use-cart";
 import { ShoppingCart, Star } from "lucide-react";
 import React, { MouseEventHandler, useState } from "react";
+import { isTemplateSpan } from "typescript";
 import DateSelection from "./selections/date-selection";
 import Button from "./ui/button";
 import Currency from "./ui/currency";
@@ -13,10 +16,12 @@ interface InfoProps {
 }
 
 const Info: React.FC<InfoProps> = ({ data }) => {
-  // const cart = useCart();
+  const cart = useCart();
+
   const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
     event.stopPropagation();
-    // cart.addItem(data);
+
+    cart.addItem(data, totalDays, formattedDates);
   };
 
   const [date, setDate] = useState([
@@ -27,6 +32,11 @@ const Info: React.FC<InfoProps> = ({ data }) => {
       total: 1,
     },
   ]);
+
+  const formattedDates = {
+    startDate: format(date[0].startDate, "dd/MM/yyy"),
+    endDate: format(date[0].endDate, "dd/MM/yyy"),
+  };
 
   const days = (date1, date2) => {
     let difference = date1.getTime() - date2.getTime();
