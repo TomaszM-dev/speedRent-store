@@ -26,8 +26,13 @@ const Summary = () => {
     }
   }, [searchParams, removeAll]);
 
-  const totalPrice = items.reduce((total, item) => {
+  const firstPayment = items.reduce((total, item) => {
+    console.log(item);
     return total + Number(item.price);
+  }, 0);
+  const totalPayment = items.reduce((total, item) => {
+    console.log(item);
+    return total + Number(item.totalPrice);
   }, 0);
 
   const onCheckout = async () => {
@@ -37,16 +42,30 @@ const Summary = () => {
         productIds: items.map((item) => item.id),
       }
     );
+
     window.location = response.data.url;
   };
 
   return (
-    <div className="mt-16 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8">
+    <div className=" mt-16  w-full rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8">
+      <div className="mb-10 text-secondary flex flex-col gap-3">
+        <span>
+          *You will pay for first day of your rent, then we will be charging you
+          every day till your rental contract will end.
+        </span>
+        <span>For testing enter card number: 4242 4242 4242 4242</span>
+      </div>
       <h2 className="text-lg font-medium text-gray-900">Order summary</h2>
       <div className="mt-6 space-y-4">
         <div className="flex items-center justify-between border-t border-gray-200 pt-4">
+          <div className="text-base font-medium text-gray-900">
+            First Payment
+          </div>
+          <Currency value={firstPayment} />
+        </div>
+        <div className="flex items-center justify-between  border-gray-200 pt-4">
           <div className="text-base font-medium text-gray-900">Order total</div>
-          <Currency value={totalPrice} />
+          <Currency value={totalPayment} />
         </div>
       </div>
       <Button

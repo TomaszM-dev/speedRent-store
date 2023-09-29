@@ -18,7 +18,7 @@ const useCart = create(
       addItem: (data: Product, totalDays: Number, date: object) => {
         const upgradedData = {
           ...data,
-          price: data.price * totalDays,
+          totalPrice: data.price * totalDays,
           startDate: date.startDate,
           endDate: date.endDate,
         };

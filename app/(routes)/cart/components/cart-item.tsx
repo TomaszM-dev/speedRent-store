@@ -53,7 +53,7 @@ const CartItem: React.FC<CartItemProps> = ({ data }) => {
         </div>
         <div className="flex items-center   gap-10 mt-2 text-secondary ">
           <p className=" text-[1.1rem] font-semibold text-accent ">
-            Total Price: {data.price}$
+            Total Price: {data.totalPrice}$
           </p>
           <div className="flex items-center gap-3">
             <div>{data.startDate}</div>
