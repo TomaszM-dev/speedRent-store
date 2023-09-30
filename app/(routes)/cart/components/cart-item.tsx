@@ -21,13 +21,13 @@ const CartItem: React.FC<CartItemProps> = ({ data }) => {
   };
 
   return (
-    <li className="flex py-6 border-b items-center">
-      <div className="relative h-40 w-40 rounded-md overflow-hidden sm:h-48 sm:w-48">
+    <li className="flex py-6 border-b items-center ">
+      <div className="flex-1 relative w-[30rem] rounded-md overflow-hidden sm:h-48 sm:w-48">
         <Image
           fill
           src={data.images[0].url}
           alt=""
-          className=" object-contain  scale-125"
+          className=" object-contain  scale-110"
         />
       </div>
       <div className="relative ml-4 flex flex-1 flex-col gap-1  text-[1rem]">
@@ -37,8 +37,8 @@ const CartItem: React.FC<CartItemProps> = ({ data }) => {
           </p>
           <IconButton className="" onClick={onRemove} icon={<X size={15} />} />
         </div>
-        <div className=" flex flex-col justify-center ">
-          <div className="mt-1 flex ">
+        <div className=" flex flex-col justify-center items-center">
+          <div className="mt-1 flex items-center">
             <p className="text-gray-500">{data.brand.name}</p>
             <p className="ml-4 border-l border-gray-200 pl-4 text-gray-500">
               {data.type.name}

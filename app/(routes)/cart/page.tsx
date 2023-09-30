@@ -21,7 +21,7 @@ const CartPage = () => {
   }
 
   return (
-    <div className="bg-white">
+    <div className="bg-white max-w-[1300px] mx-auto">
       <div>
         <div className="px-4 py-16 sm:px-6 lg:px-8">
           <div className="mt-12 lg:grid lg:grid-cols-12 lg:items-start gap-x-12">

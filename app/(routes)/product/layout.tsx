@@ -14,6 +14,7 @@ export default async function CategoryLayout({
     <>
       <CategoryNav categories={categories} />
       {children}
+      <Footer />
     </>
   );
 }

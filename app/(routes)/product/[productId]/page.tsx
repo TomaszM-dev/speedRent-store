@@ -23,7 +23,7 @@ const ProductPage = async ({ params }: ProductPageProps) => {
   console.log(category);
 
   return (
-    <div className="section container ">
+    <div className="pt-[7rem] container ">
       <div className="px-4 py-10 ">
         <div className="grid-cols-2 grid  gap-x-8">
           <Gallery images={product.images} />

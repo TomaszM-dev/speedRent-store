@@ -6,15 +6,15 @@ import getProducts from "@/actions/get-products";
 import getRates from "@/actions/get-rates";
 import getTypes from "@/actions/get-types";
 import ProductCard from "@/components/product-card";
-import ProductList from "@/components/product-list";
 import NoResults from "@/components/ui/no-results";
-import { useFetch } from "@/hooks/use-fetch";
-import { Star } from "lucide-react";
 import Image from "next/image";
 import React from "react";
-import { getDefaultFormatCodeSettings } from "typescript";
 import Filter from "./components/filter";
 import ResetFilter from "./components/reset-filter";
+
+import { motion } from "framer-motion";
+import SideBar from "./components/side-bar";
+import RenderProducts from "./components/render-products";
 
 export const revalidate = 0;
 
@@ -50,22 +50,13 @@ const CategoryPage = async ({ params, searchParams }: CategoryPageProps) => {
   return (
     <div className="w-full pb-10 bg-[#b2b7c2]/10 text-black">
       <div className="  flex w-full pt-40 min-xxl:container  mx-auto px-10 max-w-[1600px] gap-10">
-        <div className=" flex-[25%] max-md:flex-[45%] border-[1px] bg-white px-6 py-6 flex flex-col ">
-          <ResetFilter categoryId={params.categoryId} />
-          <div className="flex flex-col mt-8 gap-4">
-            <Filter valueKey="typeId" name="Types" data={types} />
-            <Filter valueKey="brandId" name="Brands" data={brands} />
-            <Filter valueKey="locationId" name="Locations" data={locations} />
-          </div>
-        </div>
-        <div className="flex-[75%] grid grid-cols-2 xxl:grid-cols-3 max-md:grid-cols-1 gap-4 h-fit w-full relative ">
-          {products.length === 0 && (
-            <NoResults categoryId={params.categoryId} />
-          )}
-          {products.map((item) => (
-            <ProductCard key={item.id} car={item} />
-          ))}
-        </div>
+        <SideBar
+          categoryId={params.categoryId}
+          types={types}
+          brands={brands}
+          locations={locations}
+        />
+        <RenderProducts categoryId={params.categoryId} products={products} />
       </div>
     </div>
   );
