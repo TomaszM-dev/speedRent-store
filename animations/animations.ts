@@ -20,6 +20,25 @@ export const fadeIn = (direction: string, delay: number) => {
   };
 };
 
+export const scale = (delay: number) => {
+  return {
+    hidden: {
+      scale: 0.8,
+      opacity: 0,
+    },
+    show: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        type: "tween",
+        duration: 1.2,
+        delay: delay,
+        ease: [0.25, 0.25, 0.25, 0.75],
+      },
+    },
+  };
+};
+
 export const menuVars = {
   initial: {
     scaleY: 0,
