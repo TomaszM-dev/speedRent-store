@@ -12,7 +12,7 @@ import { usePathname } from "next/navigation";
 
 // icons
 import { AiFillShopping } from "react-icons/ai";
-import { BiMenuAltRight, BiX } from "react-icons/bi";
+import { BiCategory, BiMenuAltRight, BiX } from "react-icons/bi";
 
 // animations
 import { motion, AnimatePresence } from "framer-motion";
@@ -148,13 +148,7 @@ const HomeNav = ({ categories }: CategoryProps) => {
           ))}
         </div>
 
-        <div className=" flex gap-3 mx-5 items-center  text-[1.1rem] font-semibold ">
-          {/* 1 item */}
-          {/* <DropdownMenuComp
-            open={open}
-            setOpen={setOpen}
-            categories={categories}
-          /> */}
+        <div className=" flex gap-0 mx-5 items-center  text-[1.1rem] font-semibold ">
           <p
             className="max-xl:hidden  text-[1.14rem] font-semibold text-primary cursor-pointer"
             onClick={() => {
@@ -163,9 +157,16 @@ const HomeNav = ({ categories }: CategoryProps) => {
           >
             Explore Collection |
           </p>
+          <BiCategory
+            onClick={() => {
+              router.push(`/category/${categories[0].id}`);
+            }}
+            className="text-3xl xl:hidden cursor-pointer"
+          />
 
-          {/* 2 item */}
-          <CartActions />
+          <div className="">
+            <CartActions />
+          </div>
         </div>
 
         <div

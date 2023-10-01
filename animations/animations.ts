@@ -23,11 +23,30 @@ export const fadeIn = (direction: string, delay: number) => {
 export const scale = (delay: number) => {
   return {
     hidden: {
-      scale: 0.8,
+      scale: 0.9,
       opacity: 0,
     },
     show: {
       scale: 1,
+      opacity: 1,
+      transition: {
+        type: "tween",
+        duration: 1.2,
+        delay: delay,
+        ease: [0.25, 0.25, 0.25, 0.75],
+      },
+    },
+  };
+};
+
+export const widthUp = (delay: number) => {
+  return {
+    hidden: {
+      width: 0,
+      opacity: 0,
+    },
+    show: {
+      width: "100vh",
       opacity: 1,
       transition: {
         type: "tween",

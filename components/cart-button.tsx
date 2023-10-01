@@ -23,7 +23,7 @@ const CartActions = () => {
   }
 
   return (
-    <div className="ml-auto flex items-center gap-x-4">
+    <div className="max-lg:mr-[-1.2rem] flex items-center   gap-x-4 ">
       <Button
         onClick={() => router.push("/cart")}
         className="flex items-center rounded-full  px-4 py-2"
@@ -34,7 +34,7 @@ const CartActions = () => {
             initial={{ scale: 0 }}
             exit={{ scale: 0 }}
             animate={{ scale: 1 }}
-            className="bg-accent text-white text-[0.8rem] font-[500] w-5 h-5 rounded-full absolute top-[-0rem] right-[0.3rem] max-xl:right-[5.3rem] max-sm:right-[3.7rem] items-center flex justify-center "
+            className="bg-accent text-white text-[0.8rem] font-[500] w-5 h-5 rounded-full absolute top-[-0rem] right-[0.3rem]  max-sm:right-[0.4rem] items-center flex justify-center "
           >
             {cart.items.length}
           </motion.span>

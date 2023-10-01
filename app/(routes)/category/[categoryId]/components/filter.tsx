@@ -16,7 +16,13 @@ interface FilterProps {
   valueKey: string;
 }
 
-const Filter: React.FC<FilterProps> = ({ data, name, valueKey }) => {
+const Filter: React.FC<FilterProps> = ({
+  setOpenFilter,
+  openFilter,
+  data,
+  name,
+  valueKey,
+}) => {
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -43,6 +49,10 @@ const Filter: React.FC<FilterProps> = ({ data, name, valueKey }) => {
     );
 
     router.push(url);
+
+    setTimeout(() => {
+      setOpenFilter(!openFilter);
+    }, 600);
   };
 
   return (

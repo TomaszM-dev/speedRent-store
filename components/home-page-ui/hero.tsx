@@ -49,7 +49,7 @@ const Hero = ({ brands, locations, types }: SearchProps) => {
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: false, amount: 0.6 }}
-              className="h1  max-sm:text-[2.5rem]  max-sm:mt-10"
+              className="h1  max-sm:text-[2.5rem]  max-sm:mt-0"
             >
               Explore our Amazing <span className="text-accent">rental </span>
               offers

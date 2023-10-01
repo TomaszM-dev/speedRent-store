@@ -6,6 +6,8 @@ import { Tab } from "@headlessui/react";
 import { Image } from "@/types";
 
 import GalleryTab from "./gallery-tab";
+import { motion } from "framer-motion";
+import { fadeIn } from "@/animations/animations";
 
 interface GalleryProps {
   images: Image[];
@@ -24,14 +26,20 @@ const Gallery: React.FC<GalleryProps> = ({ images = [] }) => {
       <Tab.Panels className="aspect-square w-full">
         {images.map((image) => (
           <Tab.Panel key={image.id}>
-            <div className="aspect-square relative h-full w-full sm:rounded-lg overflow-hidden">
+            <motion.div
+              variants={fadeIn("up", 0.2)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.6 }}
+              className="aspect-square relative h-full w-full sm:rounded-lg overflow-hidden"
+            >
               <NextImage
                 fill
                 src={image.url}
                 alt="Image"
                 className="object-contain scale-125"
               />
-            </div>
+            </motion.div>
           </Tab.Panel>
         ))}
       </Tab.Panels>

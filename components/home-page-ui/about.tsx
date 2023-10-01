@@ -39,7 +39,7 @@ const About = () => {
             variants={fadeIn("up", 0.2)}
             initial="hidden"
             whileInView={"show"}
-            className="text-[2.2rem] font-semibold "
+            className="text-[2.2rem] font-semibold  max-sm:text-center"
           >
             Vehicle services simplified.
           </motion.h2>

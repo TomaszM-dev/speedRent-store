@@ -13,7 +13,7 @@ import { usePathname } from "next/navigation";
 
 // icons
 import { AiFillShopping } from "react-icons/ai";
-import { BiMenuAltRight, BiX } from "react-icons/bi";
+import { BiCategory, BiMenuAltRight, BiX } from "react-icons/bi";
 
 // animations
 import { motion, AnimatePresence } from "framer-motion";
@@ -139,8 +139,8 @@ const CategoryNav = ({ categories }: CategoryProps) => {
           </Link>
         </h1>
 
-        <div className=" flex-1 flex gap-3  items-center  text-[1.1rem] font-semibold ">
-          <div className="w-full flex items-center justify-end  text-[1.2rem] gap-4">
+        <div className="  max-xl:flex-initial  flex-1 flex  items-center  text-[1.1rem] font-semibold ">
+          <div className="  max-xl:hidden w-full flex items-center justify-end  text-[1.2rem] gap-4">
             {categories.map((cat) => (
               <Link
                 className={cn(
@@ -155,18 +155,21 @@ const CategoryNav = ({ categories }: CategoryProps) => {
               </Link>
             ))}
           </div>
-          <CartActions />
+          <BiCategory
+            onClick={() => {
+              router.push(`/category/${categories[0].id}`);
+            }}
+            className="text-3xl xl:hidden cursor-pointer"
+          />
+          <div className="mr-[1.1rem]">
+            <CartActions />
+          </div>
         </div>
 
         <div
           onClick={() => setNav(!nav)}
           className="  cursor-pointer  flex items-center"
         >
-          {/* {nav ? (
-            <BiX className="text-4xl" />
-          ) : (
-            <BiMenuAltRight className="text-4xl" />
-          )} */}
           <BiMenuAltRight className="text-4xl" />
         </div>
       </div>

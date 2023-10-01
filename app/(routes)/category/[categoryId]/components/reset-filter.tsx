@@ -6,12 +6,20 @@ interface FilterProps {
   categoryId: string;
 }
 
-const ResetFilter = ({ categoryId }: FilterProps) => {
+const ResetFilter = ({
+  setOpenFilter,
+  openFilter,
+  categoryId,
+}: FilterProps) => {
   const router = useRouter();
 
+  const handleClick = () => {
+    router.push(`/category/${categoryId}`);
+    setOpenFilter(!openFilter);
+  };
   return (
     <p
-      onClick={() => router.push(`/category/${categoryId}`)}
+      onClick={handleClick}
       className="text-accent font-semibold text-end text-[1.1rem] cursor-pointer"
     >
       Reset filters

@@ -10,6 +10,8 @@ import { isTemplateSpan } from "typescript";
 import DateSelection from "./selections/date-selection";
 import Button from "./ui/button";
 import Currency from "./ui/currency";
+import { motion } from "framer-motion";
+import { fadeIn } from "@/animations/animations";
 
 interface InfoProps {
   data: Product;
@@ -52,13 +54,33 @@ const Info: React.FC<InfoProps> = ({ data }) => {
 
   return (
     <div className=" font-bold text-gray-500 text-[1.2rem]">
-      <h1 className="text-4xl text-black">{data.name}</h1>
+      <motion.h1
+        variants={fadeIn("left", 0.2)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{ once: false, amount: 0.6 }}
+        className="text-4xl text-black"
+      >
+        {data.name}
+      </motion.h1>
       <div className="mt-3 items-end justify-between">
-        <p className="text-2xl text-gray-900">
+        <motion.p
+          variants={fadeIn("left", 0.2)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.6 }}
+          className="text-2xl text-gray-900"
+        >
           <Currency value={data?.price} />
-        </p>
+        </motion.p>
         <hr className="my-4" />
-        <div className="flex flex-col gap-y-6">
+        <motion.div
+          variants={fadeIn("left", 0.4)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.6 }}
+          className="flex flex-col gap-y-6"
+        >
           <div className="flex items-center gap-x-4">
             <h3 className="font-semibold text-black">Type:</h3>
             <div>{data?.type?.name}</div>
@@ -79,11 +101,24 @@ const Info: React.FC<InfoProps> = ({ data }) => {
             <h3 className="font-semibold text-black">Rate:</h3>
             <div className="flex text-accent ">{starRateArray}</div>
           </div>
-        </div>
+        </motion.div>
       </div>
-      <DateSelection date={date} setDate={setDate} />
+      <motion.div
+        variants={fadeIn("left", 0.6)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{ once: false, amount: 0.6 }}
+      >
+        <DateSelection date={date} setDate={setDate} />
+      </motion.div>
 
-      <div className="mt-10 flex items-center   gap-x-3">
+      <motion.div
+        variants={fadeIn("left", 0.6)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{ once: false, amount: 0.6 }}
+        className="mt-10 flex items-center   gap-x-3"
+      >
         <Button
           onClick={onAddToCart}
           className="bg-accent flex items-center gap-x-2"
@@ -94,7 +129,7 @@ const Info: React.FC<InfoProps> = ({ data }) => {
             Your Total Price: {Number(data.price) * totalDays}$
           </span>
         </Button>
-      </div>
+      </motion.div>
     </div>
   );
 };
