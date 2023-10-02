@@ -1,21 +1,28 @@
 "use client";
+
+// zustand
 import { useFetch } from "@/hooks/use-fetch";
+
+// headless ui
 import { Menu } from "@headlessui/react";
-import React, { useState } from "react";
-import { FaMapMarkedAlt, FaMapMarker } from "react-icons/fa";
+
+// icons
 import { MdBrandingWatermark } from "react-icons/md";
+import { FaArrowRightLong } from "react-icons/fa6";
+
+// date
 import { DateRange } from "react-date-range";
 import { addDays, format } from "date-fns";
-
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
-import { isTemplateExpression } from "typescript";
-import { FaArrowRightLong } from "react-icons/fa6";
-const DateSelection = ({ date, setDate }) => {
-  const data = useFetch();
 
-  // calc number of dates
+interface DateSelectionProps {
+  date: any;
+  setDate: any;
+}
 
+const DateSelection = ({ date, setDate }: DateSelectionProps) => {
+  // @ts-ignore
   const handleChange = (item) => {
     setDate([item.selection]);
   };

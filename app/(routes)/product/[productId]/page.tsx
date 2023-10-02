@@ -1,12 +1,16 @@
-import getCategories from "@/actions/get-categories";
-import getProduct from "@/actions/get-product";
-import getProducts from "@/actions/get-products";
+// components
 import Gallery from "@/components/gallery";
 import Info from "@/components/info";
 import ProductList from "@/components/product-list";
 
+// fetching
+import getCategories from "@/actions/get-categories";
+import getProduct from "@/actions/get-product";
+import getProducts from "@/actions/get-products";
+
 import React from "react";
 
+// types
 type ProductPageProps = {
   params: {
     productId: string;
@@ -14,13 +18,13 @@ type ProductPageProps = {
 };
 
 const ProductPage = async ({ params }: ProductPageProps) => {
+  // get products that are included in that exact category
   const product = await getProduct(params.productId);
   const suggestedProducts = await getProducts({
     categoryId: product?.category?.id,
   });
 
   const category = await getCategories();
-  console.log(category);
 
   return (
     <div className="pt-[7rem] container ">

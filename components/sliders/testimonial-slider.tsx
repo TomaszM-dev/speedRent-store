@@ -1,9 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { fadeIn } from "@/animations/animations";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FaQuoteLeft } from "react-icons/fa";
+import { fadeIn } from "@/animations/animations";
 
 import "swiper/css";
 import "swiper/css/pagination";

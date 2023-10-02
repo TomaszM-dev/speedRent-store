@@ -1,28 +1,50 @@
 "use client";
+
+// react next
+import React, { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+
+// components
 import ProductCard from "@/components/product-card";
 import NoResults from "@/components/ui/no-results";
-import React, { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import Filter from "./filter";
+
+// animation
 import { fadeIn, menuVars, scale, widthUp } from "@/animations/animations";
+import { AnimatePresence, motion } from "framer-motion";
+
+// icons
 import { BiFilterAlt } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
 import ResetFilter from "./reset-filter";
-import Filter from "./filter";
-import { usePathname } from "next/navigation";
 
-const RenderProducts = ({ products, categoryId, types, brands, locations }) => {
+// types
+import { Brand, Location, Product, Type } from "@/types";
+
+interface RenderProductsProps {
+  products: Product[];
+  categoryId: string;
+  types: Type[];
+  brands: Brand[];
+  locations: Location[];
+}
+
+const RenderProducts = ({
+  products,
+  categoryId,
+  types,
+  brands,
+  locations,
+}: RenderProductsProps) => {
   const [openFilter, setOpenFilter] = useState(false);
-  const pathname = usePathname();
-
-  const [path, setPath] = useState(pathname);
 
   return (
     <div className="flex-[75%] grid grid-cols-2 xxl:grid-cols-3 max-md:grid-cols-1 gap-4 h-fit w-full relative  ">
       <AnimatePresence>
         {products.length === 0 && (
           <motion.div
-            className=" left-[50%] w-full h-[40rem]"
-            // variants={fadeIn("up", 0.2)}
+            className=" left-[-50%] w-full h-[40rem]"
+            variants={fadeIn("up", 0.2)}
             initial="hidden"
             whileInView={"show"}
             viewport={{ once: false, amount: 0.6 }}

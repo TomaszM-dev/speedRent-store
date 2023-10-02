@@ -11,7 +11,6 @@ import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 
 // icons
-import { AiFillShopping } from "react-icons/ai";
 import { BiCategory, BiMenuAltRight, BiX } from "react-icons/bi";
 
 // animations
@@ -20,9 +19,7 @@ import { containerVars, menuLinkVars, menuVars } from "@/animations/animations";
 
 // components & context
 import { SearchContext } from "@/context/search";
-import DropDownMenu from "../dropdown-menu/dropdown-menu";
 import CartActions from "../cart-button";
-import DropdownMenuComp from "../dropdown-menu/dropdown-menu-comp";
 
 import { Category } from "@/types";
 
@@ -87,7 +84,6 @@ interface CategoryProps {
 const HomeNav = ({ categories }: CategoryProps) => {
   const [header, setHeader] = useState(false);
   const [nav, setNav] = useState(false);
-  const [open, setOpen] = useState(false);
 
   // @ts-ignore
   const { setSearchActive } = useContext(SearchContext);

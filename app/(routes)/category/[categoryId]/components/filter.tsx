@@ -1,18 +1,26 @@
 "use client";
 
-import qs from "query-string";
+// next
 import { useRouter, useSearchParams } from "next/navigation";
-
-import Button from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import { Brand, Type, Power, Location, Rate } from "@/types";
 import Image from "next/image";
-import { useFetch } from "@/hooks/use-fetch";
-import { useEffect } from "react";
 
+// types
+import { Brand, Type, Power, Location, Rate } from "@/types";
+
+// url stringify
+import qs from "query-string";
+
+// util
+import { cn } from "@/lib/utils";
+
+// components
+import Button from "@/components/ui/button";
+
+// type
 interface FilterProps {
   data: (Rate | Brand | Type | Power | Location)[];
   name: string;
+
   valueKey: string;
 }
 
@@ -23,23 +31,27 @@ const Filter: React.FC<FilterProps> = ({
   name,
   valueKey,
 }) => {
+  // next js
   const searchParams = useSearchParams();
   const router = useRouter();
 
   const selectedValue = searchParams.get(valueKey);
 
+  //  filtering items
   const onClick = (id: string) => {
+    //  parsing to string & creating current query
     const current = qs.parse(searchParams.toString());
-
     const query = {
       ...current,
       [valueKey]: id,
     };
 
+    // if true  then reset filter
     if (current[valueKey] === id) {
       query[valueKey] = null;
     }
 
+    // if false then redirect to url
     const url = qs.stringifyUrl(
       {
         url: window.location.href,

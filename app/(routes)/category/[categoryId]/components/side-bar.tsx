@@ -4,8 +4,16 @@ import Filter from "./filter";
 import ResetFilter from "./reset-filter";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/animations/animations";
+import { Brand, Location, Type } from "@/types";
 
-const SideBar = ({ categoryId, types, brands, locations }) => {
+interface SideBarProps {
+  categoryId: string;
+  types: Type[];
+  brands: Brand[];
+  locations: Location[];
+}
+
+const SideBar = ({ categoryId, types, brands, locations }: SideBarProps) => {
   return (
     <>
       <motion.div

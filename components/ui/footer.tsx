@@ -1,9 +1,14 @@
 "use client";
-import React from "react";
 
+// react next
+import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+
+// icons
 import { FaPhone, FaEnvelope } from "react-icons/fa6";
+
+// animations
+import { motion } from "framer-motion";
 import { fadeIn } from "@/animations/animations";
 
 const Footer = () => {

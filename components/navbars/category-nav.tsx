@@ -203,7 +203,6 @@ const CategoryNav = ({ categories }: CategoryProps) => {
                   <motion.div className="overflow-hidden">
                     <MobileNavLink
                       key={index}
-                      href="/"
                       spy={link.spy}
                       activeClass={link.activeClass}
                       name={link.name}
@@ -221,6 +220,7 @@ const CategoryNav = ({ categories }: CategoryProps) => {
   );
 };
 
+// types
 interface MobileNavProps {
   activeClass: string;
   spy: boolean;
@@ -229,6 +229,7 @@ interface MobileNavProps {
   smooth: boolean;
 }
 
+// mobile nav
 const MobileNavLink = ({
   activeClass,
   spy,

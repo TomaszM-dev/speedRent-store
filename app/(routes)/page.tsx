@@ -1,3 +1,4 @@
+// components UI
 import About from "@/components/home-page-ui/about";
 import BackToTopBtn from "@/components/home-page-ui/back-to-top-btn";
 import Contact from "@/components/home-page-ui/contact";
@@ -8,6 +9,7 @@ import Products from "@/components/home-page-ui/products";
 import Testimonials from "@/components/home-page-ui/testimonials";
 import Why from "@/components/home-page-ui/why";
 
+// fetching data
 import getProducts from "@/actions/get-products";
 import getLocations from "@/actions/get-location";
 import getBrands from "@/actions/get-brand";

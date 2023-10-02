@@ -1,13 +1,23 @@
 "use client";
 
-import { ShoppingBag } from "lucide-react";
+// react next
 import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
+
+// icons
+import { ShoppingBag } from "lucide-react";
+
+// components
 import Button from "./ui/button";
-import { motion } from "framer-motion";
+
+// zustand
 import useCart from "@/hooks/use-cart";
 
+// animation
+import { motion } from "framer-motion";
+
 const CartActions = () => {
+  // preventing  hydration errors
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {

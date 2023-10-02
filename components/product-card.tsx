@@ -1,9 +1,15 @@
 "use client";
-import { Product } from "@/types";
-import { Star } from "lucide-react";
+
+// next react
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
+
+// icons
+import { Star } from "lucide-react";
+
+// types
+import { Product } from "@/types";
 
 interface ProductCardProps {
   car: Product;
@@ -12,12 +18,11 @@ interface ProductCardProps {
 const ProductCard = ({ car }: ProductCardProps) => {
   const router = useRouter();
 
+  // open product witch was clicked
   const handleClick = () => {
     router.push(`/product/${car?.id}`);
   };
-
   const starRate = Number(car.rate.value);
-
   const starRateArray = Array.from({ length: starRate }, () => <Star />);
 
   return (

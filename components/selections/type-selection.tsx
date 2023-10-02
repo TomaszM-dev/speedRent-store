@@ -1,8 +1,7 @@
 "use client";
-import { useFetch } from "@/hooks/use-fetch";
 import { Menu } from "@headlessui/react";
-import React, { useState } from "react";
-import { FaMapMarker } from "react-icons/fa";
+import { useFetch } from "@/hooks/use-fetch";
+
 import { AiFillCarryOut } from "react-icons/ai";
 
 interface TypeSelection {

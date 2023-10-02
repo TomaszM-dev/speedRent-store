@@ -1,17 +1,28 @@
 "use client";
-import useCart from "@/hooks/use-cart";
-import { Product } from "@/types";
+
+// react
+import React, { MouseEventHandler, useState } from "react";
+
+// date formatter
 import { format } from "date-fns/esm";
 
-// import useCart from "@/use-cart";
+// zustand
+import useCart from "@/hooks/use-cart";
+
+// icons
 import { ShoppingCart, Star } from "lucide-react";
-import React, { MouseEventHandler, useState } from "react";
-import { isTemplateSpan } from "typescript";
-import DateSelection from "./selections/date-selection";
+
+// components
 import Button from "./ui/button";
 import Currency from "./ui/currency";
+import DateSelection from "./selections/date-selection";
+
+// animations
 import { motion } from "framer-motion";
 import { fadeIn } from "@/animations/animations";
+
+// types
+import { Product } from "@/types";
 
 interface InfoProps {
   data: Product;
@@ -20,6 +31,7 @@ interface InfoProps {
 const Info: React.FC<InfoProps> = ({ data }) => {
   const cart = useCart();
 
+  // adding item to the cart
   const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
     event.stopPropagation();
 
@@ -35,20 +47,24 @@ const Info: React.FC<InfoProps> = ({ data }) => {
     },
   ]);
 
+  // format dates do dd/MM/yyy
   const formattedDates = {
     startDate: format(date[0].startDate, "dd/MM/yyy"),
     endDate: format(date[0].endDate, "dd/MM/yyy"),
   };
 
+  // @ts-ignore
   const days = (date1, date2) => {
     let difference = date1.getTime() - date2.getTime();
     let TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
     return TotalDays;
   };
 
+  // calculating total days of selected rent
   const totalDays = Number(days(date[0].endDate, date[0].startDate)) + 1;
   console.log(totalDays);
 
+  // creating number of stars
   const starRate = Number(data.rate.value);
   const starRateArray = Array.from({ length: starRate }, () => <Star />);
 
@@ -81,10 +97,12 @@ const Info: React.FC<InfoProps> = ({ data }) => {
           viewport={{ once: false, amount: 0.6 }}
           className="flex flex-col gap-y-6"
         >
-          <div className="flex items-center gap-x-4">
-            <h3 className="font-semibold text-black">Type:</h3>
-            <div>{data?.type?.name}</div>
-          </div>
+          {/* {data.map((data) => (
+            <div className="flex items-center gap-x-4">
+              <h3 className="font-semibold text-black">Type:</h3>
+              <div>{data?.type?.name}</div>
+            </div>
+          ))} */}
           <div className="flex items-center gap-x-4">
             <h3 className="font-semibold text-black">Power:</h3>
             <div>{data?.power?.value} HP</div>

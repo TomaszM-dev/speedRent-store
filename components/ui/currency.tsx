@@ -7,6 +7,7 @@ interface CurrencyProps {
 }
 
 const Currency: React.FC<CurrencyProps> = ({ value }) => {
+  // preventing hydration errors
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {

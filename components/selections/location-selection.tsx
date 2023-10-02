@@ -1,9 +1,10 @@
 "use client";
-import { useFetch } from "@/hooks/use-fetch";
-import { Location } from "@/types";
-import { Menu } from "@headlessui/react";
 import React, { useState } from "react";
-import { FaMapMarkedAlt, FaMapMarker } from "react-icons/fa";
+
+import { useFetch } from "@/hooks/use-fetch";
+import { Menu } from "@headlessui/react";
+
+import { FaMapMarker } from "react-icons/fa";
 
 interface LocationSelectionProps {
   location: string;
