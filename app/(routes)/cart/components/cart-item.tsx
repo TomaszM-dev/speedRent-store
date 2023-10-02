@@ -21,13 +21,13 @@ const CartItem: React.FC<CartItemProps> = ({ data }) => {
   };
 
   return (
-    <li className="flex py-6 border-b items-center ">
-      <div className="flex-1 relative w-[30rem] rounded-md overflow-hidden sm:h-48 sm:w-48">
+    <li className="flex py-6 border-b items-center max-md:flex-col  max-md:h-[30rem]">
+      <div className="flex-1  relative max-md:w-[40rem] max-md:h-[40rem] max-sm:py-10 max-sm:mb-10 rounded-md overflow-hidden sm:h-48 sm:w-48">
         <Image
           fill
           src={data.images[0].url}
           alt=""
-          className=" object-contain  scale-110"
+          className=" object-contain  scale-110 "
         />
       </div>
       <div className="relative ml-4 flex flex-1 flex-col gap-1  text-[1rem]">
@@ -38,7 +38,7 @@ const CartItem: React.FC<CartItemProps> = ({ data }) => {
           <IconButton className="" onClick={onRemove} icon={<X size={15} />} />
         </div>
         <div className=" flex flex-col justify-center items-center">
-          <div className="mt-1 flex items-center">
+          <div className="mt-1 flex items-center max-lg:flex-wrap max-lg:gap-5 max-lg:my-2 ">
             <p className="text-gray-500">{data.brand.name}</p>
             <p className="ml-4 border-l border-gray-200 pl-4 text-gray-500">
               {data.type.name}
@@ -46,7 +46,7 @@ const CartItem: React.FC<CartItemProps> = ({ data }) => {
             <p className="ml-4 border-l border-gray-200 pl-4 text-gray-500">
               {data.power.value}HP
             </p>
-            <p className="ml-4 border-l border-gray-200 pl-4 text-gray-500">
+            <p className="ml-4 border-l max-lg:ml-0 max-lg:pl-0  max-lg:border-0 border-gray-200 pl-4 text-gray-500">
               {data.location.name}
             </p>
           </div>

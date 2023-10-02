@@ -21,13 +21,15 @@ const RenderProducts = ({ products, categoryId, types, brands, locations }) => {
       <AnimatePresence>
         {products.length === 0 && (
           <motion.div
-            className="absolute left-[50%]"
-            variants={fadeIn("up", 0.2)}
+            className=" left-[50%] w-full h-[40rem]"
+            // variants={fadeIn("up", 0.2)}
             initial="hidden"
             whileInView={"show"}
             viewport={{ once: false, amount: 0.6 }}
           >
-            <NoResults categoryId={categoryId} />
+            <motion.div className="">
+              <NoResults categoryId={categoryId} />
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

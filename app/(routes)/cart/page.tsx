@@ -21,13 +21,13 @@ const CartPage = () => {
   }
 
   return (
-    <div className="bg-white max-w-[1300px] mx-auto">
+    <div className="bg-white max-w-[1300px] mx-auto ">
       <div>
         <div className="px-4 py-16 sm:px-6 lg:px-8">
           <div className="mt-12 lg:grid lg:grid-cols-12 lg:items-start gap-x-12">
             <div className="lg:col-span-7 ">
               {cart.items.length === 0 && (
-                <div className="relative">
+                <div className="relative max-lg:h-[23rem]">
                   <LoadingSpinner />
                 </div>
               )}

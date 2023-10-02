@@ -24,14 +24,15 @@ const ProductPage = async ({ params }: ProductPageProps) => {
 
   return (
     <div className="pt-[7rem] container ">
-      <div className="px-4 py-10 ">
-        <div className="grid-cols-2 grid  gap-x-8">
+      <div className="px-4 py-10  ">
+        <div className="grid-cols-2  grid  gap-x-8 max-lg:flex max-lg:flex-col max-lg:items-start max-lg:w">
           <Gallery images={product.images} />
-          <div className=" px-4">
+          <div className=" w-full px-4">
             <Info data={product} />
           </div>
         </div>
         <hr className="my-12"></hr>
+
         <ProductList items={suggestedProducts} />
       </div>
     </div>

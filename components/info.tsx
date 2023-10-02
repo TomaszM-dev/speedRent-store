@@ -53,7 +53,7 @@ const Info: React.FC<InfoProps> = ({ data }) => {
   const starRateArray = Array.from({ length: starRate }, () => <Star />);
 
   return (
-    <div className=" font-bold text-gray-500 text-[1.2rem]">
+    <div className=" font-bold text-gray-500 text-[1.2rem] ">
       <motion.h1
         variants={fadeIn("left", 0.2)}
         initial="hidden"
@@ -121,11 +121,13 @@ const Info: React.FC<InfoProps> = ({ data }) => {
       >
         <Button
           onClick={onAddToCart}
-          className="bg-accent flex items-center gap-x-2"
+          className="bg-accent flex max-sm:items-start items-center gap-x-2 max-sm:flex-col max-sm:w-full max-sm: max-sm:bg-transparent max-sm:gap-6"
         >
-          <ShoppingCart size={20} />
-          Add To Cart |{" "}
-          <span className="font-bold">
+          <div className="px-4 py-3 bg-accent flex rounded-lg gap-3 items-center ">
+            <ShoppingCart size={20} />
+            <span>Add To Cart | </span>
+          </div>
+          <span className="font-bold max-sm:text-black">
             Your Total Price: {Number(data.price) * totalDays}$
           </span>
         </Button>
