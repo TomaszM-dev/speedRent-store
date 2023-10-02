@@ -1,16 +1,20 @@
 "use client";
+
+// next react
 import Image from "next/image";
 import React from "react";
+import { useInView } from "react-intersection-observer";
+import CountUp from "react-countup";
+
+// images icons
 import carAbout from "/public/images/about/scooter1.png";
 import {
-  MdOutdoorGrill,
   MdOutlineBuildCircle,
-  MdOutlineDirections,
   MdOutlineDirectionsCar,
   MdOutlineMapsHomeWork,
 } from "react-icons/md";
-import CountUp from "react-countup";
-import { useInView } from "react-intersection-observer";
+
+// animations
 import { motion } from "framer-motion";
 import { fadeIn } from "@/animations/animations";
 

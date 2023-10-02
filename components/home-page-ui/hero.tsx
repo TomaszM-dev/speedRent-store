@@ -23,7 +23,6 @@ interface SearchProps {
 
 const Hero = ({ brands, locations, types }: SearchProps) => {
   // @ts-ignore
-
   const { searchActive } = useContext(SearchContext);
 
   // data for search

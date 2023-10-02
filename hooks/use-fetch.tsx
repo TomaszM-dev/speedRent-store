@@ -8,9 +8,9 @@ type CartState = {
   locations: Location[];
   types: Type[];
   brands: Brand[];
-  addAllLocations: (props) => void;
-  addAllTypes: (props) => void;
-  addAllBrands: (props) => void;
+  addAllLocations: (props: any) => void;
+  addAllTypes: (props: any) => void;
+  addAllBrands: (props: any) => void;
 };
 
 export const useFetch = create<CartState>()(

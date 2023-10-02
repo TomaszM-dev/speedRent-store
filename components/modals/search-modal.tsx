@@ -1,14 +1,18 @@
-import getLocations from "@/actions/get-location";
-import { SearchContext } from "@/context/search";
-import { useFetch } from "@/hooks/use-fetch";
-import { Type } from "@/types";
+"react next";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
+
+// hook contect
+import { SearchContext } from "@/context/search";
+import { useFetch } from "@/hooks/use-fetch";
+
+// components
+import Button from "../ui/button";
 import BrandSelection from "../selections/brand-selection";
 import LocationSelection from "../selections/location-selection";
 import TypeSelection from "../selections/type-selection";
-import Button from "../ui/button";
 
+// type
 interface SearchModalProps {
   location: string;
   setLocation: React.Dispatch<React.SetStateAction<string>>;
@@ -29,11 +33,12 @@ export default function SearchModal({
   // @ts-ignore
 
   const { searchActive } = useContext(SearchContext);
-
-  const [disable, setDisable] = useState(false);
   const data = useFetch();
   const router = useRouter();
 
+  const [disable, setDisable] = useState(false);
+
+  // if info is provided then enable button to sarch products
   useEffect(() => {
     if (
       location === "Select Location" ||
@@ -46,6 +51,7 @@ export default function SearchModal({
     }
   }, [location, type, brand]);
 
+  // redirecting based on given information
   const handleClick = () => {
     const curBrand = data.brands.filter((item) => item.name === brand);
     const curLocation = data.locations.filter((item) => item.name === location);

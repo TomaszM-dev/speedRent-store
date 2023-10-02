@@ -15,7 +15,7 @@ const useCart = create(
   persist<CartStore>(
     (set, get) => ({
       items: [],
-      addItem: (data: Product, totalDays: Number, date: object) => {
+      addItem: (data: Product, totalDays: Number, date: Object) => {
         const upgradedData = {
           ...data,
           totalPrice: data.price * totalDays,
