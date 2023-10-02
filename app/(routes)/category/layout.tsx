@@ -1,8 +1,10 @@
-import getCategories from "@/actions/get-categories";
+// components
 import Search from "@/components/modals/search-modal";
 import CategoryNav from "@/components/navbars/category-nav";
-
 import Footer from "@/components/ui/footer";
+
+// fetch
+import getCategories from "@/actions/get-categories";
 
 export default async function CategoryLayout({
   children,
@@ -14,7 +16,6 @@ export default async function CategoryLayout({
   return (
     <>
       <CategoryNav categories={categories} />
-
       {children}
       <Footer />
     </>

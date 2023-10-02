@@ -1,24 +1,20 @@
+import React, { useState } from "react";
+
+// fetching
 import getBrands from "@/actions/get-brand";
-import getCategories from "@/actions/get-categories";
 import getCategory from "@/actions/get-category";
 import getLocations from "@/actions/get-location";
 import getProducts from "@/actions/get-products";
 import getRates from "@/actions/get-rates";
 import getTypes from "@/actions/get-types";
-import ProductCard from "@/components/product-card";
-import NoResults from "@/components/ui/no-results";
-import Image from "next/image";
-import React, { useState } from "react";
-import Filter from "./components/filter";
-import ResetFilter from "./components/reset-filter";
 
-import { motion } from "framer-motion";
+// components
 import SideBar from "./components/side-bar";
 import RenderProducts from "./components/render-products";
-import { BiFilterAlt } from "react-icons/bi";
 
 export const revalidate = 0;
 
+// types
 interface CategoryPageProps {
   params: {
     categoryId: string;
@@ -33,6 +29,7 @@ interface CategoryPageProps {
 }
 
 const CategoryPage = async ({ params, searchParams }: CategoryPageProps) => {
+  // fetch products
   const products = await getProducts({
     categoryId: params.categoryId,
     typeId: searchParams.typeId,
@@ -42,6 +39,7 @@ const CategoryPage = async ({ params, searchParams }: CategoryPageProps) => {
     powerId: searchParams.powerId,
   });
 
+  // get individual information
   const types = await getTypes();
   const rates = await getRates();
   const brands = await getBrands();
@@ -51,12 +49,15 @@ const CategoryPage = async ({ params, searchParams }: CategoryPageProps) => {
   return (
     <div className=" w-full pb-10 bg-[#b2b7c2]/10 text-black">
       <div className="  flex w-full pt-40 min-xxl:container  mx-auto px-10 max-w-[1600px] gap-10 relative">
+        {/* filter bar */}
         <SideBar
           categoryId={params.categoryId}
           types={types}
           brands={brands}
           locations={locations}
         />
+
+        {/* list of products */}
         <RenderProducts
           categoryId={params.categoryId}
           products={products}

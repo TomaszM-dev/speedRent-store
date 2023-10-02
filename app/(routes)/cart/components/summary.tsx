@@ -1,14 +1,21 @@
 "use client";
 
-import axios from "axios";
+// react next
 import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 
+// axios
+import axios from "axios";
+
+// zustand
+import useCart from "@/hooks/use-cart";
+
+// components
 import Button from "@/components/ui/button";
 import Currency from "@/components/ui/currency";
 
+// modal
 import { toast } from "react-hot-toast";
-import useCart from "@/hooks/use-cart";
 
 const Summary = () => {
   const searchParams = useSearchParams();
@@ -26,15 +33,15 @@ const Summary = () => {
     }
   }, [searchParams, removeAll]);
 
+  // calculating order payments
   const firstPayment = items.reduce((total, item) => {
-    console.log(item);
     return total + Number(item.price);
   }, 0);
   const totalPayment = items.reduce((total, item) => {
-    console.log(item);
     return total + Number(item.totalPrice);
   }, 0);
 
+  // on checkout function & stripe redirection
   const onCheckout = async () => {
     const response = await axios.post(
       `${process.env.NEXT_PUBLIC_API_URL}/checkout`,

@@ -15,6 +15,9 @@ export interface Product {
   category: Category;
   name: string;
   price: number;
+  totalPrice: number;
+  startDate: string;
+  endDate: string;
   isFeatured: boolean;
   brand: Brand;
   type: Type;

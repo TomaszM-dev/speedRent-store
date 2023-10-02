@@ -49,7 +49,7 @@ const RenderProducts = ({ products, categoryId, types, brands, locations }) => {
       <BiFilterAlt
         onClick={() => setOpenFilter(!openFilter)}
         className="xl:hidden absolute top-[-2.4rem] right-4 text-[1.9rem] cursor-pointer"
-      />
+      ></BiFilterAlt>
       <AnimatePresence>
         {openFilter && (
           <motion.div

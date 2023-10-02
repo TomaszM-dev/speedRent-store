@@ -1,7 +1,7 @@
 import Header from "@/components/navbars/home-nav";
+import CategoryNav from "@/components/navbars/category-nav";
 
 import React from "react";
-import CategoryNav from "@/components/navbars/category-nav";
 
 const Category = () => {
   return (

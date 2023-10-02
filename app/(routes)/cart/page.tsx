@@ -1,16 +1,23 @@
 "use client";
 
-import LoadingSpinner from "@/components/ui/loading-spinner";
-import useCart from "@/hooks/use-cart";
 import { useEffect, useState } from "react";
+
+// hook
+import useCart from "@/hooks/use-cart";
+
+// components
+import LoadingSpinner from "@/components/ui/loading-spinner";
 import CartItem from "./components/cart-item";
 import Summary from "./components/summary";
 
+// catche
 export const revalidate = 0;
 
 const CartPage = () => {
-  const [isMounted, setIsMounted] = useState(false);
+  // zustand cart
   const cart = useCart();
+  // preventing hydration errors
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
@@ -26,12 +33,14 @@ const CartPage = () => {
         <div className="px-4 py-16 sm:px-6 lg:px-8">
           <div className="mt-12 lg:grid lg:grid-cols-12 lg:items-start gap-x-12">
             <div className="lg:col-span-7 ">
+              {/* if there is no items in the cart */}
               {cart.items.length === 0 && (
                 <div className="relative max-lg:h-[23rem]">
                   <LoadingSpinner />
                 </div>
               )}
               <ul>
+                {/* render items from the cart */}
                 {cart.items.map((item) => (
                   <CartItem key={item.id} data={item} />
                 ))}
