@@ -19,7 +19,7 @@ const SideBar = ({ categoryId, types, brands, locations }: SideBarProps) => {
       <motion.div
         variants={fadeIn("right", 0.2)}
         initial="hidden"
-        whileInView={"show"}
+        animate={"show"}
         viewport={{ once: false, amount: 0.6 }}
         className=" max-xl:hidden flex-[25%] max-md:flex-[45%] border-[1px] bg-white px-6 py-6 flex flex-col "
       >
