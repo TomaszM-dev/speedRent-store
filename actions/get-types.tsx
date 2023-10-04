@@ -1,6 +1,6 @@
 import { Type } from "@/types";
 
-const URL = `https://speed-rent-admin-panel.vercel.app/api/e5345677-845e-433a-a692-0f6f5b9178fe/types`;
+const URL = `${process.env.NEXT_PUBLIC_API_URL}/types`;
 
 const getTypes = async (): Promise<Type[]> => {
   const res = await fetch(URL);
