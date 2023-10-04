@@ -1,7 +1,7 @@
 import { Product } from "@/types";
 import qs from "query-string";
 
-const URL = `${process.env.NEXT_PUBLIC_API_URL}/products`;
+const URL = `https://speed-rent-admin-panel.vercel.app/api/e5345677-845e-433a-a692-0f6f5b9178fe/products`;
 
 interface Query {
   categoryId?: string;

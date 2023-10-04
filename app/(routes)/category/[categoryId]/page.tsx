@@ -30,6 +30,8 @@ interface CategoryPageProps {
 
 const CategoryPage = async ({ params, searchParams }: CategoryPageProps) => {
   // fetch products
+
+  console.log(searchParams);
   const products = await getProducts({
     categoryId: params.categoryId,
     typeId: searchParams.typeId,
@@ -42,10 +44,8 @@ const CategoryPage = async ({ params, searchParams }: CategoryPageProps) => {
   console.log(products);
   // get individual information
   const types = await getTypes();
-  const rates = await getRates();
   const brands = await getBrands();
   const locations = await getLocations();
-  const category = await getCategory(params.categoryId);
 
   return (
     <div className=" w-full pb-10 bg-[#b2b7c2]/10 text-black">
