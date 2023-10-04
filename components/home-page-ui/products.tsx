@@ -11,7 +11,7 @@ interface ProductsProps {
   products: Product[];
 }
 
-const Products = ({ products, brands, locations, types }: ProductsProps) => {
+const Products = ({ products }: ProductsProps) => {
   return (
     <section className="section  flex items-center w-full " id="products">
       <motion.div className="container  mx-auto flex flex-col gap-20 max-sm:gap-10 ">
@@ -27,12 +27,6 @@ const Products = ({ products, brands, locations, types }: ProductsProps) => {
           initial="hidden"
           whileInView={"show"}
         >
-          <RenderProducts
-            products={products}
-            types={types}
-            brands={brands}
-            locations={locations}
-          />
           <ProductSlider products={products} />
         </motion.div>
       </motion.div>
