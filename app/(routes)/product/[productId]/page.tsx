@@ -10,6 +10,8 @@ import getProducts from "@/actions/get-products";
 
 import React from "react";
 
+export const revalidate = 0;
+
 // types
 type ProductPageProps = {
   params: {

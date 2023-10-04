@@ -15,6 +15,8 @@ import getLocations from "@/actions/get-location";
 import getBrands from "@/actions/get-brand";
 import getTypes from "@/actions/get-types";
 
+export const revalidate = 0;
+
 export default async function Home() {
   const products = await getProducts({ isFeatured: true });
   const locations = await getLocations();
