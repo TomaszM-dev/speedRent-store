@@ -5,6 +5,7 @@ import "./globals.css";
 import ModalProvider from "@/providers/modal-provider";
 import { ToastProvider } from "@/providers/toast-provider";
 import { SearchContextProvider } from "@/context/search";
+import Hydrate from "@/components/hydrate";
 
 const font = Urbanist({ subsets: ["latin"] });
 
@@ -22,9 +23,11 @@ export default function RootLayout({
     <SearchContextProvider>
       <html lang="en">
         <body className={font.className}>
-          <ToastProvider />
-          <ModalProvider />
-          {children}
+          <Hydrate>
+            <ToastProvider />
+            <ModalProvider />
+            {children}
+          </Hydrate>
         </body>
       </html>
     </SearchContextProvider>
