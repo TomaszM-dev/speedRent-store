@@ -27,7 +27,12 @@ export default async function Home() {
       {/*  @ts-ignore */}
       <Navbar />
       <Hero brands={brands} locations={locations} types={types} />
-      <Products products={products} />
+      <Products
+        products={products}
+        types={types}
+        brands={brands}
+        locations={locations}
+      />
       <About />
       <Why />
       <Testimonials />
