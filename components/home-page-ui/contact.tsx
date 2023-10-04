@@ -7,7 +7,7 @@ import { fadeIn } from "@/animations/animations";
 
 import appStore from "public/icons/buttons/app-store.svg";
 import googlePlay from "public/icons/buttons/google-play.svg";
-import mobile from "public/images/cta/phone.svg";
+import mobile from "public/images/cta/phone.png";
 
 const Contact = () => {
   return (

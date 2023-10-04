@@ -121,7 +121,7 @@ const HomeNav = ({ categories }: CategoryProps) => {
     <header
       className={`${
         header ? " bg-white shadow-sm py-2" : "bg-transparent shadow-none "
-      } fixed w-full  py-6 mx-auto px-10 z-20 transition-all duration-300 text-[1.1rem] max-sm:px-3`}
+      } fixed w-full  py-6 mx-auto px-10 z-20 transition-all duration-300 text-[1.1rem] max-sm:px-10`}
     >
       <div className="flex justify-between max-xl:justify-stretch items-center">
         <h1 className=" text-[1.5rem] max-xl:flex-1 ">
