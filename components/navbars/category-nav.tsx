@@ -12,7 +12,6 @@ import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 
 // icons
-import { AiFillShopping } from "react-icons/ai";
 import { BiCategory, BiMenuAltRight, BiX } from "react-icons/bi";
 
 // animations
@@ -21,11 +20,9 @@ import { containerVars, menuLinkVars, menuVars } from "@/animations/animations";
 
 // components & context
 import { SearchContext } from "@/context/search";
-import DropDownMenu from "../dropdown-menu/dropdown-menu";
 import CartActions from "../cart-button";
 import { cn } from "@/lib/utils";
 import { Category } from "@/types";
-import Search from "../modals/search-modal";
 
 //interface for categories
 interface CategoryProps {
@@ -140,7 +137,7 @@ const CategoryNav = ({ categories }: CategoryProps) => {
         </h1>
 
         <div className="  max-xl:flex-initial  flex-1 flex  items-center  text-[1.1rem] font-semibold ">
-          <div className="  max-xl:hidden w-full flex items-center justify-end  text-[1.2rem] gap-4">
+          <div className="  max-xl:hidden w-full flex items-center justify-end text-[1.2rem] gap-4 ">
             {categories.map((cat) => (
               <Link
                 className={cn(
@@ -155,13 +152,14 @@ const CategoryNav = ({ categories }: CategoryProps) => {
               </Link>
             ))}
           </div>
+
           <BiCategory
             onClick={() => {
               router.push(`/category/${categories[0].id}`);
             }}
             className="text-3xl xl:hidden cursor-pointer"
           />
-          <div className="mr-[1.1rem]">
+          <div className="mr-[2.5rem]">
             <CartActions />
           </div>
         </div>

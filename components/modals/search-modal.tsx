@@ -58,7 +58,7 @@ export default function SearchModal({
     const curType = data.types.filter((item) => item.name === type);
 
     router.push(
-      `/category/31ecbd08-a89a-49d9-ad84-e9ce846c16c5?typeId=${curType[0].id}&brandId=${curBrand[0].id}&locationId=${curLocation[0].id}`
+      `/category/d96c6ef2-edff-4268-acc0-2d860e138204?typeId=${curType[0].id}&brandId=${curBrand[0].id}&locationId=${curLocation[0].id}`
     );
   };
 

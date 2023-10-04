@@ -20,6 +20,7 @@ export default async function Home() {
   const locations = await getLocations();
   const brands = await getBrands();
   const types = await getTypes();
+  console.log(products);
 
   return (
     <div className=" bg-white mx-auto relative overflow-hidden ">

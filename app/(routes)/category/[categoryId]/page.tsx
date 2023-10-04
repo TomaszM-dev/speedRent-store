@@ -39,6 +39,7 @@ const CategoryPage = async ({ params, searchParams }: CategoryPageProps) => {
     powerId: searchParams.powerId,
   });
 
+  console.log(products);
   // get individual information
   const types = await getTypes();
   const rates = await getRates();

@@ -20,7 +20,7 @@ const ProductCard = ({ car }: ProductCardProps) => {
 
   // open product witch was clicked
   const handleClick = () => {
-    router.push(`/product/${car?.id}`);
+    router.push(`/product/${car.id}`);
   };
   const starRate = Number(car.rate.value);
   const starRateArray = Array.from({ length: starRate }, () => <Star />);
