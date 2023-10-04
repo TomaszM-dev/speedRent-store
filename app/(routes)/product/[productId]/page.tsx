@@ -24,6 +24,7 @@ const ProductPage = async ({ params }: ProductPageProps) => {
     categoryId: product?.category?.id,
   });
 
+  console.log(product);
   const category = await getCategories();
 
   return (
