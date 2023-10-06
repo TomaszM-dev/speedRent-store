@@ -23,11 +23,9 @@ export default function RootLayout({
     <SearchContextProvider>
       <html lang="en">
         <body className={font.className}>
-          <Hydrate>
-            <ToastProvider />
-            <ModalProvider />
-            {children}
-          </Hydrate>
+          <ToastProvider />
+          <ModalProvider />
+          {children}
         </body>
       </html>
     </SearchContextProvider>
