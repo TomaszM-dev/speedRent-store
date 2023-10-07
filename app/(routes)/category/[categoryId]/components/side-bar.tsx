@@ -44,7 +44,7 @@ const SideBar = ({ categoryId, types, brands, locations }: SideBarProps) => {
           <motion.div
             variants={fadeIn("right", 0.8)}
             initial="hidden"
-            whileInView={"show"}
+            animate={"show"}
             viewport={{ once: true, amount: 0.6 }}
           >
             <Filter valueKey="locationId" name="Locations" data={locations} />

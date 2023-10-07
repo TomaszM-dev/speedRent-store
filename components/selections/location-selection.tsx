@@ -29,7 +29,6 @@ const LocationSelection = ({
           </div>
           <div className=" text-secondary ml-6">{location}</div>
         </Menu.Button>
-
         <Menu.Items className=" text-center w-[20rem]  rounded-lg   dropdown-menu shadow-xl absolute top-[5.5rem] bg-white left-[50%] translate-x-[-50%] ">
           {data.locations.map((item) => (
             <div

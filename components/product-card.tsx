@@ -41,7 +41,7 @@ const ProductCard = ({ car }: ProductCardProps) => {
         <div className="flex flex-col ">
           <div className="text-[1rem] text-secondary uppercase flex justify-between">
             <span>{car.type.name}</span>
-            <div className="flex text-accent ">{starRateArray}</div>
+            <div className="flex text-accent  ">{starRateArray}</div>
           </div>
           <div className="flex justify-between">
             <div>

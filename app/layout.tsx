@@ -10,7 +10,7 @@ import Hydrate from "@/components/hydrate";
 const font = Urbanist({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Store",
+  title: "SpeedRental",
   description: "Store - The place for all your purchases.",
 };
 

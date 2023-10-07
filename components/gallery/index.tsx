@@ -31,13 +31,13 @@ const Gallery: React.FC<GalleryProps> = ({ images = [] }) => {
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: false, amount: 0.6 }}
-              className="aspect-square  max-lg:w-[50rem] max-lg:h-[20rem] max-sm:w-[19rem] max-md:w-[30rem]  sm:rounded-lg overflow-hidden"
+              className="aspect-square  max-lg:w-[50rem] max-lg:h-[20rem] max-sm:w-[20rem]  max-md:w-[30rem]   sm:rounded-lg overflow-hidden"
             >
               <NextImage
                 fill
                 src={image.url}
                 alt="Image"
-                className="object-contain    scale-125 "
+                className="object-contain overflow-hidden max-sm:object-scale-down   scale-125 "
               />
             </motion.div>
           </Tab.Panel>

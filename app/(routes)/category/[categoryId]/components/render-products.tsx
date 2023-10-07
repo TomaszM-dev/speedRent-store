@@ -39,19 +39,17 @@ const RenderProducts = ({
   const [openFilter, setOpenFilter] = useState(false);
 
   return (
-    <div className="flex-[75%] grid grid-cols-2 xxl:grid-cols-3 max-md:grid-cols-1 gap-4 h-fit w-full relative  ">
+    <div className="flex-[75%] grid grid-cols-2 xxl:grid-cols-3 max-md:grid-cols-1 gap-4 h-fit w-full relative ">
       <AnimatePresence>
         {products.length === 0 && (
           <motion.div
-            className=" left-[-50%] w-full h-[40rem]"
+            className="  relative w-full h-[40rem]"
             variants={fadeIn("up", 0.2)}
             initial="hidden"
             whileInView={"show"}
             viewport={{ once: false, amount: 0.6 }}
           >
-            <motion.div className="">
-              <NoResults categoryId={categoryId} />
-            </motion.div>
+            <NoResults categoryId={categoryId} />
           </motion.div>
         )}
       </AnimatePresence>
@@ -82,12 +80,11 @@ const RenderProducts = ({
             viewport={{ once: false, amount: 0.6 }}
             className="bottom-0 left-0 w-screen gap-5 h-[50%] shadow-lg fixed bg-white z-20 origin-bottom p-10  flex flex-col max-lg:h-[100%] overflow-scroll"
           >
-            <AiOutlineClose
-              className="  text-[2.2rem] max-lg:text-[1.8rem]   cursor-pointer "
-              onClick={() => setOpenFilter(!openFilter)}
-            />
             <div className="flex w-full justify-between items-center mt-3 ">
-              <h1></h1>
+              <AiOutlineClose
+                className="   mb-10 text-[2.2rem] max-lg:text-[1.8rem]   cursor-pointer "
+                onClick={() => setOpenFilter(!openFilter)}
+              />
               <ResetFilter
                 openFilter={openFilter}
                 setOpenFilter={setOpenFilter}
@@ -129,7 +126,7 @@ const RenderProducts = ({
                 className="w-full"
                 variants={fadeIn("right", 0.8)}
                 initial="hidden"
-                whileInView={"show"}
+                animate={"show"}
                 viewport={{ once: true, amount: 0.6 }}
               >
                 <Filter

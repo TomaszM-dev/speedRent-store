@@ -22,7 +22,7 @@ const Footer = () => {
         className="container flex items-center justify-between gap-1 px-1 max-lg:flex-col max-lg:gap-10 "
       >
         <div className="flex max-sm:flex-col  max-sm:justify-center max-sm:items-center  max-sm:gap-14">
-          <div className="flex flex-col  gap-2  max-sm:items-center  ">
+          <div className="flex flex-col  max-lg:mr-14 max-sm:mr-0  gap-2  max-sm:items-center  ">
             <h3 className="text-[1.8rem] font-semibold w-fit  ">
               Speed<span className="text-accent">Rental</span>
             </h3>

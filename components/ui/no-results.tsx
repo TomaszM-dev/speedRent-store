@@ -10,8 +10,11 @@ interface NoResultsProps {
 
 const NoResults = ({ categoryId }: NoResultsProps) => {
   return (
-    <div className="absolute top-[6rem]  left-[50%] translate-x-[-50%]  text-neutral-500">
-      <div className="max-2xl:w-[22rem] flex flex-col items-center ">
+    <div className="absolute max-md:left-[20%] max-sm:left-[8%] left-[50%] top-[6rem]  text-neutral-500">
+      <div
+        className="
+      w-[22rem] flex flex-col items-center "
+      >
         <Player autoplay loop src={noResults}></Player>
         <p className="text-center mb-3">No results found, please try again.</p>
         <ResetFilter categoryId={categoryId} />
