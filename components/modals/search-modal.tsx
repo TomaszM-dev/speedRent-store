@@ -66,7 +66,7 @@ export default function SearchModal({
     <div
       className={`${
         searchActive
-          ? "bg-white rounded-none xl:h-[100px] flex items-center w-[100%] px-10 mt-2"
+          ? "bg-white rounded-none xl:h-[100px] flex items-center w-[100%] px-10 mt-2  "
           : "bg-white rounded-[20px] py-6 xl:pr-4 xl:h-[98px] w-[80%]"
       } hidden xl:flex  mx-auto relative shadow-lg `}
     >
